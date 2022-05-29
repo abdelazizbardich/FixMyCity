@@ -1,95 +1,144 @@
 package com.abdelaziz.fixmycity.Models;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.context.annotation.Primary;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import java.util.Collection;
+import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.List;
 
 @Entity(name = "users")
-public class User implements UserDetails {
+@Inheritance(strategy = InheritanceType.JOINED)
+public abstract class User implements Serializable {
 
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.AUTO) @Column(name = "user_id")
     private Long id;
-
-    @NotEmpty
-    @Column(name = "username",nullable = false)
+    @Column(name = "first_name")
+    private String firstName;
+    @Column(name = "last_name")
+    private String lastName;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "username")
     private String username;
-
-    @NotEmpty
-    @JsonIgnore
-    @Column(name = "password",nullable = false)
+    @Column(name = "password")
     private String password;
+    @Column(name = "remember_token")
+    private String rememberToken;
+    @Column(name = "is_active")
+    private Boolean isActive;
+    @ManyToOne(targetEntity = Role.class ,fetch = FetchType.EAGER)
+    private Role role;
+    @Column(name = "created_at")
+    private Timestamp createdAt;
 
-    public User() {}
+    public User() {
+    }
 
-    public User(@NotEmpty String username, @NotEmpty String password) {
+    public User(Long id, String firstName, String lastName, String email, String username, String password, String rememberToken, Boolean isActive, Role role, Timestamp createdAt) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
         this.username = username;
         this.password = password;
+        this.rememberToken = rememberToken;
+        this.isActive = isActive;
+        this.role = role;
+        this.createdAt = createdAt;
     }
 
     public Long getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+    public String getFirstName() {
+        return firstName;
     }
 
-    @Override
-    public String getPassword() {
-        return this.password;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    @Override
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getUsername() {
-        return this.username;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
+        return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRememberToken() {
+        return rememberToken;
+    }
+
+    public void setRememberToken(String rememberToken) {
+        this.rememberToken = rememberToken;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", rememberToken='" + rememberToken + '\'' +
+                ", isActive=" + isActive +
+                ", role=" + role +
+                ", createdAt=" + createdAt +
                 '}';
     }
 }
