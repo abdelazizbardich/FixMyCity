@@ -1,4 +1,0 @@
-auth:
-  expiration: 604800
-  secret: secretkey1234
-  header: Authurisation
