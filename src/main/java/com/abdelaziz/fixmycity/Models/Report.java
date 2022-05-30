@@ -9,7 +9,7 @@ import java.util.List;
 @Table(name = "reports")
 public class Report implements Serializable {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "lat")
     private String lat;

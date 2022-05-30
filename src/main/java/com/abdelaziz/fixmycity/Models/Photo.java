@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 @Table(name = "photos")
 public class Photo implements Serializable {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "name")
     private String name;

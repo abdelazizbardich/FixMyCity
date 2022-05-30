@@ -25,7 +25,7 @@ public class RoleController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Role>> get(@PathVariable(name = "id") Long id){
+    public ResponseEntity<Role> get(@PathVariable(name = "id") Long id){
         return ResponseEntity.ok().body(roleService.findById(id));
     }
 

@@ -3,13 +3,13 @@ package com.abdelaziz.fixmycity.Models;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.List;
+import java.util.Optional;
 
 @Entity(name = "users")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class User implements Serializable {
+public class User implements Serializable {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO) @Column(name = "user_id")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "user_id")
     private Long id;
     @Column(name = "first_name")
     private String firstName;
