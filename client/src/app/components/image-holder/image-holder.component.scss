@@ -1,0 +1,19 @@
+@import "../../../globales";
+.image-holder{
+  min-width: 300px;
+  width: 50vw;
+  max-width: 700px;
+  padding-top: 100%;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: block;
+  animation: lazyBounce 3s infinite alternate;
+  position: relative;
+}
+
+@keyframes lazyBounce {
+  0%{transform: translate(0px) scale(1);}
+  0%{transform: translateY(5px) scale(1);}
+  100%{transform: translate(-15px) scale(1.01);}
+}

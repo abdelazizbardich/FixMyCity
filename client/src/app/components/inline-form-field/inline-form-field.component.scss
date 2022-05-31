@@ -1,0 +1,22 @@
+@import '../../../globales';
+
+.form{
+  display: flex;
+  .form-group{
+    padding: 4px;
+    input{
+      width: 100%;
+      padding: 16px 32px;
+      color: $darkGreen;
+      font-size: 1rem;
+      background-color: rgba($green,.2);
+      border: 1px solid $green;
+      &::placeholder{
+        color: rgba($green,.5);
+      }
+    }
+    p{
+      font-size: .7rem;
+    }
+  }
+}

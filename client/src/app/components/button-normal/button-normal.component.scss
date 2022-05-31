@@ -1,0 +1,27 @@
+@import "../../../globales";
+.button-normal{
+  border: none;
+  color: $light;
+  background-color: $green;
+  border-radius: 2px;
+  &:hover{
+    background-color: $darkGreen;
+    cursor: pointer;
+    box-shadow: rgba($darkGreen, .3) 0px 3px 8px;
+    transform: translateY(-2px);
+  }
+  &.full{
+    width: 100%;
+  }
+  &.rounded{
+    border-radius: 16px;
+  }
+  &.large{
+    font-size: 1.3rem;
+    padding: 14px 32px;
+  }
+  &.small{
+    font-size: 1rem;
+    padding: 8px 32px;
+  }
+}

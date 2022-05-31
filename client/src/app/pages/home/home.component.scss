@@ -1,0 +1,102 @@
+@import "../../../globales";
+.section
+{
+  position: relative;
+  height: calc(100vh - 50px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  section{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 90%;
+    margin: auto;
+    .details{
+      padding-left: 50px;
+      max-width: 800px;
+      display: flex;
+      align-self: center;
+      justify-content: flex-start;
+      flex-direction: column;
+      p{
+        color: rgba($dark,.8);
+        margin-bottom: 1rem;
+      }
+      ul{
+        padding: revert;
+      }
+      .fasts{
+        li{
+          list-style: none;
+          &:before{
+            content: 'Fact: ';
+            margin-left: -40px;
+            font-weight: bold;
+            color: $green;
+          }
+        }
+      }
+      .counter{
+        background-color: rgba($green,.2);
+        padding: 8px 32px;
+        margin: 16px;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 5px;
+        max-width: 100%;
+        width: 500px;
+        min-width: 350px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        > div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .number{
+              font-size: 2rem;
+              font-weight: bold;
+            }
+            .tag{
+              font-size: .7rem;
+              color: $darkGreen;
+            }
+        }
+      }
+    }
+  }
+  &.left{
+    section{
+      flex-direction: row;
+    }
+    &::before{
+      content: '';
+      position: absolute;
+      background-color: rgba($green,.1);
+      clip-path: circle(90% at 100% 5%);
+      width: 50%;
+      min-width: 250px;
+      height: 100%;
+      top: 0;
+      right: 0;
+    }
+  }
+  &.right{
+    section{
+      flex-direction: row-reverse;
+    }
+    &::before{
+      content: '';
+      position: absolute;
+      background-color: rgba($green,.1);
+      clip-path: circle(50% at 0 50%);
+      width: 50%;
+      min-width: 250px;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+  }
+}

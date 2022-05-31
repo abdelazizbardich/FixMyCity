@@ -1,0 +1,29 @@
+@import '../../../globales';
+.title{
+  line-height: 30px;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  > span{
+    &:first-child{
+      display: block;
+      span{
+        font-size: 3.5rem;
+        font-weight: bold;
+        &:first-child{
+          color: $green;
+          &::after{
+            content: ' ';
+          }
+        }
+        &:last-child{
+          color: $dark;
+        }
+      }
+    }
+    &:last-child{
+      color: $darkGreen;
+      font-size: .9rem;
+      margin-left: .3rem;
+    }
+  }
+}
