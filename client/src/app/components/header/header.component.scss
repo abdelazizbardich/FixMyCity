@@ -82,6 +82,7 @@
           }
           &.active{
             color: $darkGreen;
+            cursor: not-allowed;
             &::after{
               background-color: $darkGreen;
               height: 5px;

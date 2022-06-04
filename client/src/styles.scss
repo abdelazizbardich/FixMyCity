@@ -12,3 +12,11 @@ html,body{
   box-sizing: border-box;
   transition: .3s;
 }
+section{
+  width: 90%;
+  margin: auto;
+  > * {
+    min-width: 350px;
+    margin: auto;
+  }
+}

@@ -1,0 +1,29 @@
+@import "../../../globales";
+.project{
+  margin:64px auto;
+  section{
+    display: flex;
+    justify-content: space-between;
+    .thumbnail {
+        width: 100%;
+        border-radius: 8px;
+        padding-top: 50%;
+        border: 2px solid $green;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-bottom: 1.5rem;
+        margin-right: 16px;
+    }
+    .details{
+        border-radius: 8px;
+        // padding-top: 50%;
+        border: 2px solid $green;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin-bottom: 1.5rem;
+        margin-right: 16px;
+    }
+  }
+}
