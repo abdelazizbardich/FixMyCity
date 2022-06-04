@@ -12,8 +12,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { CentersComponent } from './pages/centers/centers.component';
+import { ProjectsComponent } from './pages/projects/projects.component';
 import { ImageHolderComponent } from './components/image-holder/image-holder.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { ProjectComponent } from './pages/project/project.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +30,11 @@ import { ImageHolderComponent } from './components/image-holder/image-holder.com
     FooterComponent,
     HomeComponent,
     ContactComponent,
-    CentersComponent,
-    ImageHolderComponent
+    ProjectsComponent,
+    ImageHolderComponent,
+    GalleryComponent,
+    ContactFormComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,

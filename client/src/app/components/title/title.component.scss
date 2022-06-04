@@ -2,7 +2,7 @@
 .title{
   line-height: 30px;
   margin-top: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
   > span{
     &:first-child{
       display: block;
@@ -21,9 +21,12 @@
       }
     }
     &:last-child{
-      color: $darkGreen;
+      color: $lightGreen;
       font-size: .9rem;
       margin-left: .3rem;
     }
+  }
+  &.center{
+    text-align: center;
   }
 }

@@ -1,10 +1,11 @@
 <div class="form">
   <div class="form-group">
-    <input [type]="type" [placeholder]="placeholder">
+    <input [name]="name" (change)="setValue($event.target)" *ngIf="type != 'textarea'" [type]="type" [placeholder]="placeholder">
+    <textarea (change)="setValue($event.target)" [name]="name" *ngIf="type == 'textarea'" [placeholder]="placeholder"></textarea>
     <p>{{ hint }}</p>
   </div>
-  <div class="form-group">
-    <app-button-normal [title]="actionTitle"></app-button-normal>
+  <div class="app-button-normal" *ngIf="button">
+    <app-button-normal type="submit" *ngIf="button" [title]="actionTitle"></app-button-normal>
   </div>
 
 </div>

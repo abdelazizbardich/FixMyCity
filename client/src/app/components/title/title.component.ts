@@ -9,9 +9,11 @@ export class TitleComponent implements OnInit {
 
   @Input() title:String[] = ["simple","title"];
   @Input() slug:String = "Simple slug line goes under title"
+  @Input() class:String[] = ['title'];
   constructor() { }
 
   ngOnInit(): void {
+    this.class.push('title')
   }
 
 }

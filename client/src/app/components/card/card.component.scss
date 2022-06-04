@@ -1,7 +1,7 @@
 @import '../../../globales';
 
 .card{
-  width: 350px;
+  width: 100%;
   background-color: rgba($green,.05);
   overflow: hidden;
   padding: 8px;
@@ -11,12 +11,22 @@
   margin: 8px;
   margin-bottom: 16px;
   .thumbnail{
-    width: 100%;
-    overflow: hidden;
-    border-radius: 16px;
+    iframe{
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 16px;
+      background-color: rgba($dark,.2);
+      margin-bottom: 16px;
+    }
     img{
       width: 100%;
-      height: 100%;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 16px;
+      background-color: rgba($green,.2);
+      margin-bottom: 16px;
+      padding: 2px;
     }
   }
   .details{

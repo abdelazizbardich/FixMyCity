@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-image-holder',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ImageHolderComponent implements OnInit {
 
+  @Input() src:String = '../../../assets/sheap-1.png'
   constructor() { }
 
   ngOnInit(): void {

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-inline-form-field',
@@ -7,14 +7,22 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class InlineFormFieldComponent implements OnInit {
 
-  @Input() type: String="email"
+  @Input() type: String="text"
   @Input() disabled: Boolean=false
-  @Input() placeholder: String="'Your email address...'"
-  @Input() actionTitle: String="Subscribe"
-  @Input() hint: String= "Your infos are always in safe, we won't share your e-mail with anyone."
+  @Input() placeholder: String="Simple placeholder..."
+  @Input() actionTitle: String="Simple button"
+  @Input() button:boolean = true;
+  @Input() hint: String= "This is a simple hint placeholder."
+  @Input() textbox:boolean = false
+  @Input() name:String = ''
+  @Output() value:any = new EventEmitter<any>();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  setValue(target:any){
+    this.value.emit(target.value)
   }
 
 }

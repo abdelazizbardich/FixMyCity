@@ -3,10 +3,10 @@
     <div class="details">
       <app-title [title]="['Fix','My City']" [slug]="'A modern way to urbenize your city'"></app-title>
       <p>C'est un fait établi depuis longtemps qu'un lecteur sera distrait par le contenu lisible d'une page en regardant sa mise en page. L'intérêt d'utiliser le Lorem Ipsum est qu'il présente une distribution plus ou moins normale des lettres, par opposition à l'utilisation de "Contenu ici, contenu ici", ce qui lui donne l'apparence d'un anglais lisible. De nombreux logiciels de publication assistée par ordinateur et éditeurs de pages Web utilisent désormais le Lorem Ipsum comme modèle de texte par défaut, et une recherche sur "lorem ipsum" permet de découvrir de nombreux sites Web qui en sont encore à leurs débuts.</p>
-      <app-button-normal [class]="['small']" [title]="'Discover more'"></app-button-normal>
+      <app-button-normal [class]="['small']" [link]="'/projects'" [title]="'Our projects'"></app-button-normal>
     </div>
     <div>
-      <app-image-holder></app-image-holder>
+      <app-image-holder [src]="'https://www.pngkey.com/png/full/291-2917528_designed-by-freepik-transparent-smart-city.png'"></app-image-holder>
     </div>
   </section>
 </div>
@@ -49,7 +49,32 @@
       </div>
     </div>
     <div>
-      <app-image-holder></app-image-holder>
+      <app-image-holder [src]="'https://cdni.iconscout.com/illustration/premium/thumb/isometric-city-5154979-4326819.png'"></app-image-holder>
     </div>
   </section>
+</div>
+<div class="section ">
+  <section>
+    <div class="details">
+      <app-title [title]="['Our ','Focus']" [slug]="'7 important focus projects'"></app-title>
+      <div>
+        <ul>
+          <li>Community and neighborhood livability</li>
+          <li>Culture and reaction</li>
+          <li>Economic health</li>
+          <li>Environmental health</li>
+          <li>Hight preforming governement</li>
+          <li>Safe community</li>
+          <li>Transportation</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <app-image-holder [src]="'https://www.pngkey.com/png/full/129-1291404_3d-city-icons-2-5d.png'"></app-image-holder>
+    </div>
+  </section>
+</div>
+<div>
+    <app-title [title]="['Our ','Projects']" [class]="['center']" [slug]="'More than 17 project on ground'"></app-title>
+    <app-gallery [cards]="projects" [pageSize]="6" [pagination]="true"></app-gallery>
 </div>

@@ -2,7 +2,9 @@
 .section
 {
   position: relative;
-  height: calc(100vh - 50px);
+  // min-height: calc(100vh - 150px);
+  padding-top: 2vh;
+  padding-bottom: 2vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,10 +12,16 @@
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    width: 90%;
-    margin: auto;
+    flex-wrap: wrap;
+    // width: 90%;
+    // margin: auto;
+    // > * {
+    //   min-width: 350px;
+    //   margin: auto;
+    // }
     .details{
-      padding-left: 50px;
+      // padding-left: 50px;
+      margin: auto;
       max-width: 800px;
       display: flex;
       align-self: center;
@@ -97,6 +105,12 @@
       height: 100%;
       top: 0;
       left: 0;
+    }
+  }
+  &.center{
+    section{
+      flex-direction: row;
+      justify-content: center;
     }
   }
 }

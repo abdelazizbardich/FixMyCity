@@ -7,9 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ButtonNormalComponent implements OnInit {
 
-  @Input() title:String = "Simple Button";
+  @Input() title:any = "Simple Button";
   @Input() disabled:Boolean = false;
   @Input() class:String[] = ['large'];
+  @Input() target:any;
+  @Input() link:any;
 
   constructor() { }
 
