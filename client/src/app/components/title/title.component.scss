@@ -29,4 +29,27 @@
   &.center{
     text-align: center;
   }
+  &.small{
+    > span{
+      &:first-child{
+        span{
+          font-size: 2.5rem;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  &.smaller{
+    line-height: 20px;
+  margin-top: .1rem;
+  margin-bottom: .2rem;
+    > span{
+      &:first-child{
+        span{
+          font-size: 1.5rem;
+          font-weight: bold;
+        }
+      }
+    }
+  }
 }

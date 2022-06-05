@@ -7,8 +7,8 @@
   <div class="details">
     <span class="title">{{ title }}</span>
     <p class="desc" *ngIf="description">
-      {{ description }}
+      {{ description.substr(0,100)+'...' }}
     </p>
-    <app-button-normal *ngIf="link" [target]="'_blank'" [link]="link" [class]="['full','rounded','large']" [title]="'More details'"></app-button-normal>
+    <app-button-normal *ngIf="link" [target]="''" [link]="link" [class]="['full','rounded','large']" [title]="'More details'"></app-button-normal>
   </div>
 </div>

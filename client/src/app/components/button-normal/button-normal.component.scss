@@ -46,5 +46,9 @@
       // display: contents;
       align-self: center;
     }
+    &.green{
+      background-color: green;
+      // color: rgba($darkGreen, 1);
+    }
   }
 }
