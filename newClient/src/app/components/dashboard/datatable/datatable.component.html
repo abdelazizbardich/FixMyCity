@@ -1,0 +1,43 @@
+<div class="datatable">
+  <table>
+    <thead>
+      <th *ngFor="let col of cols">{{ col }}</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of rows">
+        <td *ngFor="let cel of row">{{ cel }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="footer">
+    <div class="page-size">
+      <select name="" id="" [value]="pageSize" (change)="setPageSize($event)">
+        <option value="8">8</option>
+        <option value="17">17</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+        <option value="250">250</option>
+      </select>
+      <span><span class="results">{{ pageSize }}</span> Results per page</span>
+    </div>
+    <div class="paggination">
+      Page
+      <select name="" id="" [value]="activePage" (change)="setActivePage($event)">
+        <option [value]="i+1" *ngFor="let item of [].constructor(pagesCount);let i = index">{{ i+1 }}</option>
+      </select>
+      of {{ pagesCount }}
+      <div class="nav">
+        <button disabled class="back" (click)="previousPage()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="7.987" height="13.141" viewBox="0 0 7.987 13.141">
+            <path id="Path" d="M10.313,0,5.156,5.158,0,0" transform="translate(6.572 1.414) rotate(90)" fill="none" stroke="#9d9d9d" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+          </svg>
+        </button>
+        <button class="next" (click)="nextPage()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="7.987" height="13.141" viewBox="0 0 7.987 13.141">
+            <path id="Path" d="M10.313,5.158,5.156,0,0,5.158" transform="translate(6.572 1.414) rotate(90)" fill="none" stroke="#fff" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

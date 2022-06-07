@@ -1,0 +1,19 @@
+@import "./app/variables";
+/* You can add global styles to this file, and also import other style files */
+*,*::after,*::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: .3s;
+}
+html, body { height: 100%; font-size: 16px; }
+body { margin: 0; font-family: Poppins, "Helvetica Neue", sans-serif; }
+
+
+select{
+  border-radius: 8px;
+  padding: .7rem 1rem;
+  border: 1px solid rgba($dark,30%);
+  color: rgba($dark,60%);
+  font-size: .9rem;
+}

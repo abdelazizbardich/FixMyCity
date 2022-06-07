@@ -1,0 +1,153 @@
+@import "../variables.scss";
+.dashboard {
+  min-height: 100%;
+  width: 100%;
+  header{
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    .brand{
+      color: $green;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.5rem;
+      &::after{
+        content: ".com";
+        color: rgba($darkGreen, 0.5);
+        font-weight: 100;
+      }
+    }
+    .profile{
+      display: flex;
+      align-items: center;
+      > span{
+        margin-right: 1rem;
+        font-size: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        text-align: right;
+        font-size: .8rem;
+        .fullname{
+          font-weight: 600;
+          font-size: 1rem;
+        }
+        a{
+          text-decoration: none;
+          color: darken($darkGreen, 50%);
+          font-size: .7rem;
+        }
+      }
+    }
+  }
+  .content{
+    display: flex;
+    align-items: stretch;
+    height: calc(100vh - 70px);
+    aside{
+      padding-top: 3rem;
+      width: 300px;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      ul{
+        padding: 0;
+        li{
+          a{
+            display: flex;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            text-decoration: none;
+            span{
+              margin-left: 1rem;
+            }
+          }
+          &:hover{
+            background-color: rgba($green, 0.1);
+          }
+          &.active{
+            position: relative;
+            border-left: 8px solid transparent;
+            &::before{
+              content: "";
+              position: absolute;
+              top: 0;
+              left: 5px;
+              width: 8px;
+              border-radius: 4px;
+              height: 100%;
+              background-color: $green;
+              z-index: -1;
+            }
+
+          }
+        }
+      }
+    }
+    main{
+      height: 100%;
+      width: calc(100% - 300px);
+      overflow-y: auto;
+      padding-top: 3rem;
+      padding-right: 3rem;
+      .bradcrump{
+        padding: 2rem 1rem;
+        width: 100%;
+        margin-bottom: 1.5rem;
+        .title{
+          font-size: 1.3rem;
+          font-weight: 600;
+          span{
+            font-weight: 400;
+            font-size: 1rem;
+            opacity: .67;
+          }
+        }
+      }
+      .stats{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        width: 100%;
+        .stat{
+          display: flex;
+          align-items: center;
+          .icon{
+            margin-right: 1rem;
+            font-size: 2rem;
+            height: 60px;
+            width: 60px;
+            color: $white;
+            background-color: $lightGreen;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .number{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            span{
+              font-size: 1.2rem;
+              font-weight: 600;
+              &.label{
+                font-size: .8rem;
+                font-weight: 400;
+              }
+            }
+          }
+        }
+      }
+      .datatable{
+        padding: 1rem;
+      }
+    }
+  }
+}
