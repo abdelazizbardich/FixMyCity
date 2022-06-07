@@ -4,7 +4,10 @@
    <div class="title">
      <app-title [title]="['',project.title]" [slug]="''"></app-title>
      <p>{{ 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores exercitationem repellat praesentium dolorum ab nobis veritatis eum adipisci quidem quam ullam veniam eveniet eius accusantium dolorem, sunt iusto quasi in.'.substr(0,150)+'...' }}</p>
-     <div class="actions"><app-button-normal [title]="'Vote'" [class]="['small','green']"></app-button-normal></div>
+     <div class="actions">
+       <app-button-normal (click)="setVote()" *ngIf="!vote" [title]="'Vote'" [class]="['small','green']"></app-button-normal>
+       <app-button-normal (click)="setVote()" *ngIf="vote" [title]="'Un vote'" [class]="['small','red']"></app-button-normal>
+      </div>
    </div>
   </section>
   <section class="about">
@@ -46,4 +49,6 @@
       </div></div>
     </div>
   </section>
+  <app-toast [title]="'Vote added'" [content]="'Thanks for votting for this project'" *ngIf="showToast && vote"></app-toast>
+  <app-toast [title]="'Vote removed'" [content]="'Your vote is removed for thid project'" *ngIf="showToast && !vote"></app-toast>
 </div>

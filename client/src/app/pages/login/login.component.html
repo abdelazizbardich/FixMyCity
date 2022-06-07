@@ -1,0 +1,28 @@
+<div class="login">
+  <section>
+    <div class="title">
+      <app-title [class]="['center']" [title]="['','Login']" [slug]="''"></app-title>
+    </div>
+    <div class="content">
+      <form action="" (submit)="send($event)">
+        <div class="form-group">
+          <div class="full">
+            <app-inline-form-field [type]="'text'" (value)="setValue('username',$event)" [name]="'username'" [button]="false" [placeholder]="'Your username...'" [hint]="''"></app-inline-form-field>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="full">
+            <app-inline-form-field [type]="'password'" (value)="setValue('password',$event)" [name]="'password'" [button]="false" [placeholder]="'Your password...'" [hint]="''"></app-inline-form-field>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="full">
+            <app-button-normal [class]="['full']" [title]="'Login'" ></app-button-normal>
+          </div>
+        </div>
+      </form>
+
+    </div>
+    </section>
+
+</div>

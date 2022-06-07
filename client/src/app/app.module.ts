@@ -17,6 +17,10 @@ import { ImageHolderComponent } from './components/image-holder/image-holder.com
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { ProjectComponent } from './pages/project/project.component';
+import { ToastComponent } from './components/toast/toast.component';
+import { LoginComponent } from './pages/login/login.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { FrontComponent } from './pages/front/front.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import { ProjectComponent } from './pages/project/project.component';
     ImageHolderComponent,
     GalleryComponent,
     ContactFormComponent,
-    ProjectComponent
+    ProjectComponent,
+    ToastComponent,
+    LoginComponent,
+    DashboardComponent,
+    FrontComponent
   ],
   imports: [
     BrowserModule,

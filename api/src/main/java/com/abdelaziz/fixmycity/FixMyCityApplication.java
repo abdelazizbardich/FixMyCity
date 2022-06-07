@@ -14,17 +14,10 @@ import javax.naming.Context;
 @SpringBootApplication
 public class FixMyCityApplication {
 
-
-    @Bean
-    PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
-
     public static void main(String[] args) {
         ApplicationContext context = SpringApplication.run(FixMyCityApplication.class, args);
         RoleRepository roleRepository = context.getBean(RoleRepository.class);
         roleRepository.save(new Role(null,"ROLE_ADMIN",null));
-
     }
 
 

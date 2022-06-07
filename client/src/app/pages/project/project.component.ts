@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { faker } from '@faker-js/faker';
-
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
@@ -12,6 +11,8 @@ export class ProjectComponent implements OnInit {
   projectId:any;
   projects:any = [];
   project:any;
+  vote:boolean = false;
+  showToast:boolean = false;
   constructor(private route:ActivatedRoute){}
 
   ngOnInit(): void {
@@ -54,7 +55,15 @@ export class ProjectComponent implements OnInit {
       "https://picsum.photos/id/1023/3955/2094",
       "https://picsum.photos/id/1024/1920/1280",
       "https://picsum.photos/id/1025/4951/3301"
-  ].sort( () => .5 - Math.random() )[index]
+    ].sort( () => .5 - Math.random() )[index]
+  }
+
+  setVote(){
+    this.vote = !this.vote
+    this.showToast = true;
+    setTimeout(() => {
+      this.showToast = false
+    }, 2000);
   }
 
 }

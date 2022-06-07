@@ -50,5 +50,8 @@
       background-color: green;
       // color: rgba($darkGreen, 1);
     }
+    &.red{
+      background-color: rgba(145, 0, 0, 0.968);
+    }
   }
 }
