@@ -3,7 +3,7 @@ package com.abdelaziz.fixmycity.Services;
 import com.abdelaziz.fixmycity.Models.Administration;
 import com.abdelaziz.fixmycity.Repositories.AdministrationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,8 +13,8 @@ import java.util.Optional;
 public class AdministrationService {
 
     private AdministrationRepository administrationRepository;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+//    @Autowired
+//    private PasswordEncoder passwordEncoder;
 
     public AdministrationService(AdministrationRepository administrationRepository) {
         this.administrationRepository = administrationRepository;
@@ -29,9 +29,9 @@ public class AdministrationService {
     }
 
     public Administration addOrUpdate(Administration administration){
-        if(administration.getId() == null){
-            administration.setPassword(passwordEncoder.encode(administration.getPassword()));
-        }
+//        if(administration.getId() == null){
+//            administration.setPassword(passwordEncoder.encode(administration.getPassword()));
+//        }
         return administrationRepository.save(administration);
     }
 
