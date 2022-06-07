@@ -46,6 +46,27 @@
         }
         td{
           padding: 1.5rem 1rem;
+          .actions{
+            button{
+              padding: .5rem;
+              margin: .1rem;
+              border-radius: 4px;
+              border: none;
+              background-color: $lightGreen;
+              font-weight: 600;
+              color: $white;
+              cursor: pointer;
+              &:hover{
+                transform: scale(1.01) scale(1.03);
+              }
+              &.edit{
+                background-color: $blue;
+              }
+              &.delete{
+                background-color: $red;
+              }
+            }
+          }
         }
       }
     }
