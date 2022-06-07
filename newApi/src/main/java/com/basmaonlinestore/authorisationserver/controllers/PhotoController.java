@@ -1,15 +1,17 @@
-package com.abdelaziz.fixmycity.Controllers;
+package com.basmaonlinestore.authorisationserver.controllers;
 
-import com.abdelaziz.fixmycity.Models.Photo;
-import com.abdelaziz.fixmycity.Services.PhotoService;
+import com.basmaonlinestore.authorisationserver.models.Photo;
+import com.basmaonlinestore.authorisationserver.services.PhotoService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/photo")
+@RequestMapping("/photo")
+@Secured("ROLE_ADMIN")
 public class PhotoController {
 
     private PhotoService photoService;

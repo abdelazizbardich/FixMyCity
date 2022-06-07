@@ -1,15 +1,17 @@
-package com.abdelaziz.fixmycity.Controllers;
+package com.basmaonlinestore.authorisationserver.controllers;
 
-import com.abdelaziz.fixmycity.Models.Administration;
-import com.abdelaziz.fixmycity.Services.AdministrationService;
+import com.basmaonlinestore.authorisationserver.models.Administration;
+import com.basmaonlinestore.authorisationserver.services.AdministrationService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/administration")
+@RequestMapping("/administration")
+@Secured("ROLE_ADMIN")
 public class AdministrationController {
 
     private AdministrationService administrationService;

@@ -6,13 +6,14 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "roles")
 @RequiredArgsConstructor
 @Getter
 @Setter
-public class Role {
+public class Role implements Serializable {
 
     @Id
     @Column(name = "role_id")
@@ -21,4 +22,5 @@ public class Role {
 
     @Column(name = "name")
     private String name;
+
 }

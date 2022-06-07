@@ -1,15 +1,17 @@
-package com.abdelaziz.fixmycity.Controllers;
+package com.basmaonlinestore.authorisationserver.controllers;
 
-import com.abdelaziz.fixmycity.Models.Specialisation;
-import com.abdelaziz.fixmycity.Services.SpecialisationService;
+import com.basmaonlinestore.authorisationserver.models.Specialisation;
+import com.basmaonlinestore.authorisationserver.services.SpecialisationService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/specialisation")
+@RequestMapping("/specialisation")
+@Secured({"ROLE_ADMIN"})
 public class SpecialisationController {
 
     private SpecialisationService specialisationService;

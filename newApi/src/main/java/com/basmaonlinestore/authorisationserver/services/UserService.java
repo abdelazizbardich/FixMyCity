@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 @Transactional
@@ -25,7 +26,11 @@ public class UserService implements Services<User>{
     }
 
     public User findByUsername(String login){
+        try{
         return userRepository.findByLogin(login).get();
+        }catch (NoSuchElementException e){
+            return null;
+        }
     }
     @Override
     public User get(Long id) {

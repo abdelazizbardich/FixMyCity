@@ -1,15 +1,17 @@
-package com.abdelaziz.fixmycity.Controllers;
+package com.basmaonlinestore.authorisationserver.controllers;
 
-import com.abdelaziz.fixmycity.Models.Problem;
-import com.abdelaziz.fixmycity.Services.ProblemService;
+import com.basmaonlinestore.authorisationserver.models.Problem;
+import com.basmaonlinestore.authorisationserver.services.ProblemService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/problem")
+@RequestMapping("/problem")
+@Secured({"ROLE_ADMIN","ROLE_ADMINISTRATION"})
 public class ProblemController {
 
     private ProblemService problemService;

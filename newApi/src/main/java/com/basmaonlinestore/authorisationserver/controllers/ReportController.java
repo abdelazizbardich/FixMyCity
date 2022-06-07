@@ -1,15 +1,17 @@
-package com.abdelaziz.fixmycity.Controllers;
+package com.basmaonlinestore.authorisationserver.controllers;
 
-import com.abdelaziz.fixmycity.Models.Report;
-import com.abdelaziz.fixmycity.Services.ReportService;
+import com.basmaonlinestore.authorisationserver.models.Report;
+import com.basmaonlinestore.authorisationserver.services.ReportService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/report")
+@RequestMapping("/report")
+@Secured({"ROLE_ADMIN","ROLE_ADMINISTRATION","ROLE_USER"})
 public class ReportController {
 
     private ReportService reportService;
