@@ -2,23 +2,17 @@ package com.basmaonlinestore.authorisationserver;
 
 import com.basmaonlinestore.authorisationserver.models.Admin;
 import com.basmaonlinestore.authorisationserver.models.Role;
-import com.basmaonlinestore.authorisationserver.models.User;
 import com.basmaonlinestore.authorisationserver.services.AdminService;
 import com.basmaonlinestore.authorisationserver.services.RoleService;
-import com.basmaonlinestore.authorisationserver.services.UDService;
-import com.basmaonlinestore.authorisationserver.services.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.sql.Timestamp;
 
 @SpringBootApplication
 public class MyWebApplication {
-
     public static void main(String[] args) {
         ApplicationContext context =  SpringApplication.run(MyWebApplication.class, args);
 
@@ -56,6 +50,5 @@ public class MyWebApplication {
             admin.setLastName ("Doe");
             adminService.addOrUpdate(admin);
         }
-
     }
 }

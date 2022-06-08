@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -26,10 +27,10 @@ public class User implements Serializable {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "login",unique = true)
+    @Column(name = "login", unique = true, updatable = false)
     private String login;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
     @Column(name = "password")
@@ -42,10 +43,10 @@ public class User implements Serializable {
     @Column(name = "remember_token")
     private String rememberToken;
 
-    @Column(name = "is_active")
+    @Column(name = "is_active",nullable = false)
     private Boolean isActive;
 
-    @Column(name = "created_at")
+    @Column(name = "created_at", nullable = false, updatable = false)
     private Timestamp createdAt;
 
 
