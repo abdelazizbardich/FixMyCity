@@ -1,0 +1,16 @@
+<form (submit)="loginUser($event)">
+  <div class="form-group">
+    <label class="form-label" for="uname">Username</label>
+    <input class="form-field" type="text" placeholder="Enter Username..." (keyup)="setLogin($event)"  required>
+  </div>
+  <div class="form-group">
+    <label class="form-label" for="psw">Password</label>
+    <input class="form-field" type="password" placeholder="Enter Password..." (keyup)="setPassword($event)" required>
+  </div>
+  <div class="form-group">
+    <button class="form-button" type="submit">Login</button>
+  </div>
+  <div class="form-group">
+    <div class="form-link">Reset new password <a href="#">Forgot password?</a></div>
+  </div>
+</form>

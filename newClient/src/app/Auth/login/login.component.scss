@@ -1,0 +1,54 @@
+@import "../../variables.scss";
+form{
+  min-width: 300px;
+  width: 100%;
+  margin: auto;
+  .form-group{
+    width: 100%;
+    margin-bottom: 1.5rem;
+    .form-label{
+      display: block;
+      width: 100%;
+      color: $darkGreen;
+      font-size: 1rem;
+      &::after{
+        content: ":";
+      }
+    }
+    .form-field{
+      width: 100%;
+      min-height: 3rem;
+      padding: 0.5rem;
+      text-align: left;
+      border-radius: 4px;
+      border:1px solid rgba($dark, 20%);
+    }
+    .form-button{
+      width: 100%;
+      padding: 0.5rem;
+      text-align: center;
+      border-radius: 4px;
+      border:1px solid rgba($darkGreen, 20%);
+      background-color: $darkGreen;
+      color: $white;
+      font-size: 1rem;
+      cursor: pointer;
+      &:hover{
+        background-color: $green;
+        color: $white;
+      }
+    }
+    .form-link{
+      font-size: .9rem;
+      color: rgba($dark, 70%);
+      a{
+        color: $darkGreen;
+        text-decoration: underline;
+        font-weight: 600;
+        &:hover{
+          color: $green;
+        }
+      }
+    }
+  }
+}

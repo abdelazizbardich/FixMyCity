@@ -1,0 +1,33 @@
+@import "../variables.scss";
+.auth {
+  background-color: rgba($lightGreen, 10%);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .brand{
+    margin-bottom: 2rem;
+    a{
+      color: $green;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: max(3rem,4vw);
+      &::after{
+        content: ".com";
+        color: rgba($darkGreen, 0.5);
+        font-weight: 100;
+      }
+    }
+  }
+  .form-holder{
+    padding: 2rem 1rem;
+    border-radius: 8px;
+    background-color: $white;
+    box-shadow: rgba($darkGreen, 13%) 0px 16px 32px;
+    width: 50vw;
+    min-width: fit-content;
+    max-width: 50vw;
+  }
+}

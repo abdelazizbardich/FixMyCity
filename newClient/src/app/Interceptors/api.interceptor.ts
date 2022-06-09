@@ -3,29 +3,36 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 
 @Injectable()
 export class APIInterceptor implements HttpInterceptor {
-
-  token:String | null = window.localStorage.getItem(`${environment.app_id}_token`);
   constructor(private router:Router) {}
 
   intercept(httpRequest: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let headers:any = {};
-    // Add Auth token to headers if it's found on LocalStorage
-    if(this.token){
+    const token:String | null = window.localStorage.getItem(`${environment.app_id}_token`);
+    if(token != null && token != ''){
       headers = {
-        Authorization : `Bearer ${window.localStorage.getItem(`${environment.app_id}_token`)}`
+        Authorization : `Bearer ${token}`
       };
-    }else{
-      this.router.navigate(['/login'])
+    }else if (httpRequest.clone().url.split('/')[1] !== 'auth'){
+      this.router.navigateByUrl('/auth/login')
     }
-    // set api abs url and headers
-    return next.handle(httpRequest.clone({url:environment.api_base+httpRequest.clone().url,setHeaders:headers}));
-  }
+    // Clone the request to add the new header and url
+    return next.handle(httpRequest.clone({url:environment.api_base+httpRequest.clone().url,setHeaders:headers})).pipe(
+      catchError( response => {
+        // Send to login page if unauthorized
+        if(response.status === 403) {
+          this.router.navigateByUrl('/auth/login');
+        }
+        return throwError(response.error);
+      })
+      );
+   }
 }

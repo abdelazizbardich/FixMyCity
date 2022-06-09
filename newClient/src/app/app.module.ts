@@ -10,6 +10,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './dashboard/home/home.component';
 import { FrontHomeComponent } from './front-office/front-home/front-home.component';
 import { DatatableComponent } from './components/dashboard/datatable/datatable.component';
+import { LoginComponent } from './Auth/login/login.component';
+import { AuthComponent } from "./Auth/auth.component";
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { DatatableComponent } from './components/dashboard/datatable/datatable.c
     DashboardComponent,
     HomeComponent,
     FrontHomeComponent,
-    DatatableComponent
+    DatatableComponent,
+    LoginComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,

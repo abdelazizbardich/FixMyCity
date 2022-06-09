@@ -11,7 +11,7 @@
       background-color: $light;
       th{
         border: none;
-        padding: 2rem 1rem;
+        padding: 1rem 1rem;
         &:first-child{
           border-radius: 8px 0px 0px 8px;
         }
@@ -45,7 +45,7 @@
           }
         }
         td{
-          padding: 1.5rem 1rem;
+          padding: 1rem 1rem;
           .actions{
             button{
               padding: .5rem;

@@ -19,61 +19,71 @@
       </ul>
       <ul>
         <li><a href="#"><img src="../../assets/icon-settings.png" alt="#"><span>Settings</span></a></li>
-        <li><a href="#"><img src="../../assets/icon-exit.png" alt="#"><span>Logout</span></a></li>
+        <li><a (click)="logoutUser()" ><img src="../../assets/icon-exit.png" alt="#"><span>Logout</span></a></li>
       </ul>
     </aside>
     <main>
-      <div class="bradcrump">
-        <div class="title">FixMyCity <span>Overview</span></div>
-        <div class="actions"></div>
+      <div class="body">
+        <div class="bradcrump">
+          <div class="title">FixMyCity <span>Overview</span></div>
+          <div class="actions"></div>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <div class="icon">D</div>
+            <div class="number">
+              <span>22</span>
+              <span class="label">Registred users</span>
+            </div>
+          </div>
+          <div class="stat">
+            <div class="icon">D</div>
+            <div class="number">
+              <span>150</span>
+              <span class="label">Problem solved</span>
+            </div>
+          </div>
+          <div class="stat">
+            <div class="icon">D</div>
+            <div class="number">
+              <span>72</span>
+              <span class="label">Problem reported</span>
+            </div>
+          </div>
+          <div class="stat">
+            <div class="icon">D</div>
+            <div class="number">
+              <span>13</span>
+              <span class="label">Problem gategories</span>
+            </div>
+          </div>
+          <div class="stat">
+            <div class="icon">D</div>
+            <div class="number">
+              <span>90</span>
+              <span class="label">App user</span>
+            </div>
+          </div>
+          <div class="stat">
+            <div class="icon">D</div>
+            <div class="number">
+              <span>2</span>
+              <span class="label">App manager</span>
+            </div>
+          </div>
+        </div>
+        <div class="datatable">
+          <app-datatable [cols]="['Problem','Localisation','Status','Note','Photos','created at','Actions']" [data]="reports" ></app-datatable>
+        </div>
       </div>
-      <div class="stats">
-        <div class="stat">
-          <div class="icon">D</div>
-          <div class="number">
-            <span>22</span>
-            <span class="label">Registred users</span>
-          </div>
+      <footer>
+        <div class="credit">© FixMyCity.com {{ thisYear }}</div>
+        <div class="links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">About</a>
         </div>
-        <div class="stat">
-          <div class="icon">D</div>
-          <div class="number">
-            <span>150</span>
-            <span class="label">Problem solved</span>
-          </div>
-        </div>
-        <div class="stat">
-          <div class="icon">D</div>
-          <div class="number">
-            <span>72</span>
-            <span class="label">Problem reported</span>
-          </div>
-        </div>
-        <div class="stat">
-          <div class="icon">D</div>
-          <div class="number">
-            <span>13</span>
-            <span class="label">Problem gategories</span>
-          </div>
-        </div>
-        <div class="stat">
-          <div class="icon">D</div>
-          <div class="number">
-            <span>90</span>
-            <span class="label">App user</span>
-          </div>
-        </div>
-        <div class="stat">
-          <div class="icon">D</div>
-          <div class="number">
-            <span>2</span>
-            <span class="label">App manager</span>
-          </div>
-        </div>
-      </div>
-      <div class="datatable">
-        <app-datatable [cols]="['Problem','Localisation','Status','Note','Photos','created at','Actions']" [data]="reports" ></app-datatable>
-      </div>
+      </footer>
     </main>
   </div>
 </div>
