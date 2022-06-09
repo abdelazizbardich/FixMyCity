@@ -43,10 +43,10 @@ public class User implements Serializable {
     @Column(name = "remember_token")
     private String rememberToken;
 
-    @Column(name = "is_active",nullable = false)
+    @Column(name = "is_active")
     private Boolean isActive;
 
-    @Column(name = "created_at", nullable = false, updatable = false)
+    @Column(name = "created_at")
     private Timestamp createdAt;
 
 

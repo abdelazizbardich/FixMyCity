@@ -41,13 +41,16 @@ public class AuthController {
             String login = authRequest.getLogin();
             String password = authRequest.getPassword();
             final UserDetails userDetails = userDetailsService.loadUserByUsername(login);
+            if(!passwordEncoder.matches(password, userDetails.getPassword())){
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).body(Map.of("error","Wrong password!"));
+            }
             return ResponseEntity.ok().body(Map.of("token", jwtUtil.generateToken(userDetails)));
         }
         catch (UsernameNotFoundException e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error",e.getMessage()));
         }
         catch (DataIntegrityViolationException e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("error","This username already ben taken!"));
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("error","This username already ben taken!"));
         }
         catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Map.of("error","Unexpected internal server error!"));

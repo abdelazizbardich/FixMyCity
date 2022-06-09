@@ -30,7 +30,7 @@ public class JwtAuthenticationProvider implements AuthenticationProvider {
 
         UserSecurity user = (UserSecurity) userDetailsService.loadUserByUsername(username);
 
-        if (passwordEncoder.matches(password, user.getPassword())) {
+        if (passwordEncoder.matches(user.getPassword(),password)) {
             return new UsernamePasswordAuthenticationToken(user, password, user.getAuthorities());
         }
 
