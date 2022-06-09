@@ -9,8 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth/auth.guard';
 const routes: Routes = [
   {path:"", component: FrontOfficeComponent, children:[
-    {path:"", component: FrontHomeComponent},
-    {path:"login", component: FrontHomeComponent}
+    {path:"", component: FrontHomeComponent}
   ]},
   {
     path:"auth",component:AuthComponent, children:[
