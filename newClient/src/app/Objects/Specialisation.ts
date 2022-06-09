@@ -1,4 +1,5 @@
-interface Specialisation {
+import { Problem } from "./Problem";
+export interface Specialisation {
     id: number;
     name: string;
     icon: string;

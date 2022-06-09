@@ -6,7 +6,8 @@ import { FrontOfficeComponent } from './front-office/front-office.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 const routes: Routes = [
   {path:"", component: FrontOfficeComponent, children:[
-    {path:"", component: FrontHomeComponent}
+    {path:"", component: FrontHomeComponent},
+    {path:"login", component: FrontHomeComponent}
   ]},
   {path:"dashboard",component:DashboardComponent,children:[
     {path:"",component:HomeComponent}

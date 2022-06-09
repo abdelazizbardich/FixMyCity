@@ -1,4 +1,6 @@
-interface Report{
+import { Photo } from "./Photo";
+import { Problem } from "./Problem";
+export interface Report{
   id: number;
   lat: number;
   long: number;

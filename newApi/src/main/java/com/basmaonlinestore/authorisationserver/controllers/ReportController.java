@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/report")
+@CrossOrigin(origins = "*")
 @Secured({"ROLE_ADMIN","ROLE_ADMINISTRATION","ROLE_USER"})
 public class ReportController {
 

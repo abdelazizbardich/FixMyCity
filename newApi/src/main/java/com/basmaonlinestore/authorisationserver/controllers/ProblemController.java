@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/problem")
+@CrossOrigin(origins = "*")
 @Secured({"ROLE_ADMIN","ROLE_ADMINISTRATION"})
 public class ProblemController {
 

@@ -1,0 +1,21 @@
+services:
+  api:
+    image: fix_my_city
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fix_my_city
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
+  database:
+    image: mysql:8.0.28
+    container_name: database
+    ports:
+      - 3300:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: fix_my_city

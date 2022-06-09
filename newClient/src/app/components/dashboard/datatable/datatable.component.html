@@ -6,8 +6,8 @@
     <tbody>
       <tr *ngFor="let row of rows">
         <td *ngFor="let cel of row">
-          <span *ngIf="cel.key.toLowerCase() != 'actions'">{{ cel.val }}</span>
-          <span class="actions" *ngIf="cel.key.toLowerCase() == 'actions'">
+          <span *ngIf="cel.key && cel.key.toLowerCase() != 'actions'">{{ cel.val }}</span>
+          <span class="actions" *ngIf="cel.key && cel.key.toLowerCase() == 'actions'">
             <button class="view" *ngIf="cel.val.view" (click)="getView(cel.val.id)">
               <svg xmlns="http://www.w3.org/2000/svg" width="11.038" height="11.038" viewBox="0 0 11.038 11.038">
                 <path id="Icon_open-magnifying-glass" data-name="Icon open-magnifying-glass" d="M4.786-.031a4.786,4.786,0,1,0,0,9.572,4.73,4.73,0,0,0,2.27-.561,1.367,1.367,0,0,0,.178.178L8.6,10.525A1.395,1.395,0,1,0,10.57,8.556L9.2,7.189a1.367,1.367,0,0,0-.219-.178,4.722,4.722,0,0,0,.6-2.27A4.791,4.791,0,0,0,4.8-.045Zm0,1.367A3.4,3.4,0,0,1,8.2,4.755a3.429,3.429,0,0,1-.9,2.352l-.041.041a1.367,1.367,0,0,0-.178.178,3.422,3.422,0,0,1-2.311.861,3.418,3.418,0,1,1,0-6.837Z" transform="translate(0 0.045)" fill="#FFF"/>

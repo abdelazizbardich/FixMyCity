@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin(origins = "*")
 @RolesAllowed("ROLE_ADMIN")
 public class UserController {
 

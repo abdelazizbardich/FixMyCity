@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/photo")
+@CrossOrigin(origins = "*")
 @Secured("ROLE_ADMIN")
 public class PhotoController {
 
