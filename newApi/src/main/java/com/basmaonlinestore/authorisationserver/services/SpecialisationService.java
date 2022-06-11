@@ -28,9 +28,9 @@ public class SpecialisationService {
         return specialisationRepository.save(specialisation);
     }
 
-    public Boolean delete(Specialisation specialisation){
+    public Boolean delete(Long id){
         try{
-            specialisationRepository.delete(specialisation);
+            specialisationRepository.deleteById(id);
             return true;
         }catch (Exception e){
             return false;

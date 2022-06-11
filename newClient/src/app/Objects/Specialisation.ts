@@ -1,9 +1,9 @@
 import { Problem } from "./Problem";
 export interface Specialisation {
-    id: number;
-    name: string;
-    icon: string;
-    problems: Problem[];
-    createdAt: Date;
+    id?: number | null;
+    name?: string | null;
+    icon?: string | null;
+    problems?: Problem[] | null;
+    createdAt?: Date | null;
 
 }

@@ -26,25 +26,25 @@ public class UserController {
         return userService.getAll();
     }
 
-    @GetMapping("/find/{id}")
+    @GetMapping("/{id}")
     public User find(@PathVariable("id") Long id){
         return userService.get(id);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public User update(@RequestBody User user,@PathVariable("id") Long id){
         user.setUserId(id);
         return userService.update(user);
     }
 
-    @PostMapping("/add")
+    @PostMapping("/")
     public User store(@RequestBody User user){
         return userService.add(user);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public boolean delete(@RequestBody User user){
-        return userService.delete(user);
+    @DeleteMapping("/{id}")
+    public boolean delete(@PathVariable(name = "id") Long id){
+        return userService.delete(id);
     }
 
     @PostMapping("/login")

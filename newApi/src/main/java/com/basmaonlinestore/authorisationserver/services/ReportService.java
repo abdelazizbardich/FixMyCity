@@ -28,9 +28,9 @@ public class ReportService {
         return reportRepository.save(report);
     }
 
-    public Boolean delete(Report report){
+    public Boolean delete(Long id){
         try{
-            reportRepository.delete(report); return true;
+            reportRepository.deleteById(id); return true;
         }catch (Exception e){
             return false;
         }

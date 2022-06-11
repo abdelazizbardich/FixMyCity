@@ -45,9 +45,9 @@ public class RoleService implements Services<Role> {
     }
 
     @Override
-    public boolean delete(Role role) {
+    public boolean delete(Long id) {
         try {
-            roleRepository.delete(role);
+            roleRepository.deleteById(id);
             return true;
         }catch (DataAccessException e){
             System.out.println(e.getMessage());

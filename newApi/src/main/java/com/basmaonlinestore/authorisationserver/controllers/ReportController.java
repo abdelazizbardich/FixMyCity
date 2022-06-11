@@ -42,8 +42,8 @@ public class ReportController {
         return ResponseEntity.ok().body(reportService.addOrUpdate(report));
     }
 
-    @DeleteMapping("")
-    public ResponseEntity<Boolean> delete(Report report){
-        return ResponseEntity.ok().body(reportService.delete(report));
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Boolean> delete(@PathVariable(name = "id") Long id){
+        return ResponseEntity.ok().body(reportService.delete(id));
     }
 }

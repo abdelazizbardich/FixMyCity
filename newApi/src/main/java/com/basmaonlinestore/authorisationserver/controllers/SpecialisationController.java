@@ -42,8 +42,8 @@ public class SpecialisationController {
         return ResponseEntity.ok().body(specialisationService.addOrUpdate(specialisation));
     }
 
-    @DeleteMapping("")
-    public ResponseEntity<Boolean> delete(Specialisation specialisation){
-        return ResponseEntity.ok().body(specialisationService.delete(specialisation));
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Boolean> delete(@PathVariable(name = "id") Long id){
+        return ResponseEntity.ok().body(specialisationService.delete(id));
     }
 }

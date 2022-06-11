@@ -1,8 +1,8 @@
 export interface Photo{
-  id: number;
-  name: string;
-  path: string;
-  type: string;
-  size: number;
-  createdAt: Date;
+  id?: number | null;
+  name?: string | null;
+  path?: string | null;
+  type?: string | null;
+  size?: number | null;
+  createdAt?: Date | null;
 }

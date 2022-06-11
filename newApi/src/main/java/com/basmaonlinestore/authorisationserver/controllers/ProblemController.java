@@ -42,8 +42,8 @@ public class ProblemController {
         return ResponseEntity.ok().body(problemService.addOrUpdate(problem));
     }
 
-    @DeleteMapping("")
-    public ResponseEntity<Boolean> delete(Problem problem){
-        return ResponseEntity.ok().body(problemService.delete(problem));
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Boolean> delete(@PathVariable(name = "id") Long id){
+        return ResponseEntity.ok().body(problemService.delete(id));
     }
 }

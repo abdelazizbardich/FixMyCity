@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-popup',
@@ -30,5 +30,12 @@ export class PopupComponent implements OnInit {
   }
   delete(){
     this.onDelete.emit(true)
+  }
+
+  @HostListener('window:keyup', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+    if(event.keyCode == 27){
+      this.close()
+    }
   }
 }

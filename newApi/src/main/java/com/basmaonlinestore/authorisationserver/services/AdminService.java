@@ -30,17 +30,17 @@ public class AdminService {
         return adminRepository.findAll();
     }
 
-    public Optional<Admin> findById(Long id){
-        return adminRepository.findById(id);
+    public Admin findById(Long id){
+        return adminRepository.findById(id).get();
     }
 
     public Admin addOrUpdate(Admin admin){
         return adminRepository.save(admin);
     }
 
-    public Boolean delete(Admin admin){
+    public Boolean delete(Long id){
         try{
-            adminRepository.delete(admin);
+            adminRepository.deleteById(id);
             return true;
         }catch (Exception e){
             return false;

@@ -1,5 +1,5 @@
 export interface Role{
-  id: number;
-  name: string;
-  createdAt: Date;
+  id?: number | null;
+  name?: string | null;
+  createdAt?: Date | null;
 }

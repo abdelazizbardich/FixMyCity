@@ -34,7 +34,7 @@ public class AdministrationController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Administration>> get(@PathVariable(name = "id") Long id){
+    public ResponseEntity<Administration> get(@PathVariable(name = "id") Long id){
         return ResponseEntity.ok().body(administrationService.findById(id));
     }
 
@@ -47,11 +47,19 @@ public class AdministrationController {
 
     @PutMapping("")
     public ResponseEntity<Administration> update(@RequestBody Administration administration){
+        Administration oldAdministration = administrationService.findById(administration.getUserId());
+        if(administration.getPassword() == null){
+            administration.setPassword(oldAdministration.getPassword());
+        }else {
+            administration.setPassword(passwordEncoder.encode(administration.getPassword()));
+        }
+        administration.setRole(oldAdministration.getRole());
+        administration.setLogin(oldAdministration.getLogin());
         return ResponseEntity.ok().body(administrationService.addOrUpdate(administration));
     }
 
-    @DeleteMapping("")
-    public ResponseEntity<Boolean> delete(Administration administration){
-        return ResponseEntity.ok().body(administrationService.delete(administration));
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Boolean> delete(@PathVariable(name = "id") Long id){
+        return ResponseEntity.ok().body(administrationService.delete(id));
     }
 }

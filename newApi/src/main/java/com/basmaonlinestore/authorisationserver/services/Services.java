@@ -7,5 +7,5 @@ public interface Services<T> {
     T get(Long id);
     T add(T t);
     T update(T t);
-    boolean delete(T t);
+    boolean delete(Long id);
 }

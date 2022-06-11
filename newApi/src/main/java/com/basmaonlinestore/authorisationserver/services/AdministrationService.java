@@ -24,8 +24,8 @@ public class AdministrationService {
         return administrationRepository.findAll();
     }
 
-    public Optional<Administration> findById(Long id){
-        return administrationRepository.findById(id);
+    public Administration findById(Long id){
+        return administrationRepository.findById(id).get();
     }
 
     public Administration addOrUpdate(Administration administration){
@@ -35,9 +35,9 @@ public class AdministrationService {
         return administrationRepository.save(administration);
     }
 
-    public Boolean delete(Administration administration){
+    public Boolean delete(Long id){
         try{
-            administrationRepository.delete(administration);
+            administrationRepository.deleteById(id);
             return true;
         }catch (Exception e){
             return false;

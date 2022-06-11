@@ -28,9 +28,9 @@ public class ProblemService {
         return problemRepository.save(problem);
     }
 
-    public Boolean delete(Problem problem){
+    public Boolean delete(Long id){
         try{
-            problemRepository.delete(problem);
+            problemRepository.deleteById(id);
             return true;
         }catch (Exception e){
             return false;

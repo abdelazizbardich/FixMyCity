@@ -48,9 +48,9 @@ public class UserService implements Services<User>{
     }
 
     @Override
-    public boolean delete(User user) {
+    public boolean delete(Long id) {
         try {
-            userRepository.delete(user);
+            userRepository.deleteById(id);
             return true;
         }catch (DataAccessException e){
             System.out.println(e.getMessage());

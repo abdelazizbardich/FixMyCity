@@ -6,27 +6,22 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AdministrationService {
-  headers:any = {headers:{
-    "Content-Type":"application/json",
-    "Accept":"application/json"
-  }}
-
   constructor(private http:HttpClient) { }
 
   get():any{
-    return this.http.get<HttpResponse<Administration[]>>(`/administration/`,this.headers)
+    return this.http.get<HttpResponse<Administration[]>>(`/administration/`,{ observe: 'response' })
   }
-  add():any{
-    return this.http.post<HttpResponse<any>>(`/administration/`,{},this.headers)
+  add(body:Administration):any{
+    return this.http.post<HttpResponse<any>>(`/administration/`,body,{ observe: 'response' })
   }
   update(admin:Administration):any{
-    return this.http.put<HttpResponse<any>>(`/administration/`,admin,this.headers)
+    return this.http.put<HttpResponse<any>>(`/administration/`,admin,{ observe: 'response' })
   }
   delete(id:number):any{
-    return this.http.delete<HttpResponse<any>>(`/administration/${id}`,this.headers)
+    return this.http.delete<HttpResponse<any>>(`/administration/${id}`,{ observe: 'response' })
   }
   find(id:number):any{
-    return this.http.get<HttpResponse<any>>(`/administration/${id}`,this.headers)
+    return this.http.get<HttpResponse<any>>(`/administration/${id}`,{ observe: 'response' })
   }
 
 }

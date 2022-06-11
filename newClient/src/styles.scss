@@ -17,3 +17,97 @@ select{
   color: rgba($dark,60%);
   font-size: .9rem;
 }
+
+form{
+  min-width: 300px;
+  width: 100%;
+  margin: auto;
+  .form-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    // margin-bottom: .5rem;
+    .form-group{
+      margin: 1rem;
+      margin-bottom: .5rem;
+      margin-top: 0;
+      &:first-child{
+        margin-left: 0;
+      }
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+  }
+  .form-group{
+    width: 100%;
+    margin-bottom: 1.5rem;
+    .form-label{
+      display: block;
+      width: 100%;
+      color: rgba($dark, 0.7);
+      font-size: 1rem;
+      margin-bottom: .7rem;
+      &::after{
+        content: ":";
+      }
+      &:empty{
+        &::after{
+          // opacity: 0;
+          content: "";
+        }
+      }
+    }
+    .form-field{
+      width: 100%;
+      min-height: 3rem;
+      padding: 0.5rem;
+      text-align: left;
+      border-radius: 4px;
+      border:1px solid rgba($dark, 20%);
+      &:disabled{
+        opacity: 1 !important;
+        background-color: rgba($darkGreen, 0.1);
+      }
+    }
+    .form-button{
+      width: 100%;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 4px;
+      border:1px solid rgba($darkGreen, 20%);
+      background-color: $darkGreen;
+      color: $white;
+      font-size: 1rem;
+      cursor: pointer;
+      &:hover{
+        background-color: $green;
+        color: $white;
+      }
+    }
+    .form-link{
+      font-size: .9rem;
+      color: rgba($dark, 70%);
+      a{
+        color: $darkGreen;
+        text-decoration: underline;
+        font-weight: 600;
+        &:hover{
+          color: $green;
+        }
+      }
+    }
+  }
+}
+
+
+button{
+  border-radius: 8px;
+  padding: .7rem 1rem;
+  border: 1px solid rgba($dark,30%);
+  color: $white;
+  font-size: .9rem;
+  cursor: pointer;
+  border: none;
+  background-color: $green;
+}
