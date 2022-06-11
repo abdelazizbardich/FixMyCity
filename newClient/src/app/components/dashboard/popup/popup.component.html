@@ -1,0 +1,22 @@
+<div class="popup">
+  <div class="overlay" (click)="close()"></div>
+  <div class="content">
+      <div class="content-header">
+        <div class="title" [ngClass]="(onDelete.observers.length)?'danger':''">
+          {{ title }}
+        </div>
+        <!-- <div class="header-actions">
+          <button class="close" (click)="close()">Close</button>
+        </div> -->
+      </div>
+      <div class="content-body">
+          <ng-content></ng-content>
+      </div>
+      <div class="content-footer">
+        <button *ngIf="onCreate.observers.length" class="save" (click)="save()">Save</button>
+        <button *ngIf="onUpdate.observers.length" class="update" (click)="update()">Update</button>
+        <button *ngIf="onDelete.observers.length" class="delete" (click)="delete()">Delete</button>
+        <button class="close" (click)="close()">Close</button>
+      </div>
+  </div>
+</div>

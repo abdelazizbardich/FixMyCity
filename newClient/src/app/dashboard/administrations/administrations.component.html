@@ -2,7 +2,19 @@
   <app-jumbotron [title]="'Administrations overview'" [actions]="[{title:'Add',color:'green',url:'/'}]" ></app-jumbotron>
   <div class="content">
     <div class="datatable">
-      <app-datatable [cols]="cols" [data]="administrations" (onView)="view($event)" (onEdit)="edit($event)" (onDelete)="delete($event)"></app-datatable>
+      <app-datatable [cols]="cols" [data]="administrations" (onView)="callView($event)" (onEdit)="callEdit($event)" (onDelete)="callDelete($event)"></app-datatable>
     </div>
   </div>
+  <app-popup *ngIf="isDeletting" (onDelete)="delete()" (onClose)="callClose()" [title]="'Delete administration'">
+    <p>Are you sure you want to delete this administration?</p>
+  </app-popup>
+  <app-popup *ngIf="isCreating" (onCreate)="add()" (onClose)="callClose()" [title]="'Add administration'">
+    <p>Are you sure you want to Create this administration?</p>
+  </app-popup>
+  <app-popup *ngIf="isEditing" (onUpdate)="edit()" (onClose)="callClose()" [title]="'Add administration'">
+    <p>Are you sure you want to Edit this administration?</p>
+  </app-popup>
+  <app-popup *ngIf="isViewing" (onClose)="callClose()" [title]="'Add administration'">
+    <p>Are you sure you want to View this administration?</p>
+  </app-popup>
 </div>

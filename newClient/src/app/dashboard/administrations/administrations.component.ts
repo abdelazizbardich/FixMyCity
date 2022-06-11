@@ -11,6 +11,10 @@ import { Specialisation } from 'src/app/Objects/Specialisation';
 export class AdministrationsComponent implements OnInit {
 
   cols:String[] = ["Username","Email","Phones","Geo localisation","Specialisation",'Actions'];
+  isViewing:boolean = false;
+  isCreating:boolean = false;
+  isEditing:boolean = false;
+  isDeletting:boolean = false;
   administrations:any[][] = [];
 
   constructor(private administrationService:AdministrationService) { }
@@ -34,15 +38,37 @@ export class AdministrationsComponent implements OnInit {
     })
   }
 
-  edit(id:any){
-    alert("==> edit: "+id);
+  callView(id:any){
+    this.isViewing = true;
+  }
+  callAdd(id:any){
+    this.isCreating = true;
+  }
+  callEdit(id:any){
+    this.isEditing = true;
+  }
+  callDelete(id:any){
+    this.isDeletting = true;
+  }
 
+  callClose(){
+    this.isViewing = false;
+    this.isCreating = false;
+    this.isEditing = false;
+    this.isDeletting = false;
   }
-  view(id:any){
-    alert("==> View: "+id);
+
+  view(sumbit=false){
+    alert("==> View: ");
   }
-  delete(id:any){
-    alert("==> Delete: "+id);
+  add(){
+    this.isCreating = true;
+  }
+  edit(sumbit=false){
+    alert("==> edit: ");
+  }
+  delete(sumbit=false){
+    alert("==> delete: ");
   }
 
 

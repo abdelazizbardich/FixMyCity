@@ -13,7 +13,7 @@ import { DatatableComponent } from './components/dashboard/datatable/datatable.c
 import { LoginComponent } from './Auth/login/login.component';
 import { AuthComponent } from "./Auth/auth.component";
 import { ProfileComponent } from './dashboard/profile/profile.component';
-import { JumbotronComponent } from './components/jumbotron/jumbotron.component';
+import { JumbotronComponent } from './components/dashboard/jumbotron/jumbotron.component';
 import { AdministrationsComponent } from './dashboard/administrations/administrations.component';
 import { SpecialisationsComponent } from './dashboard/specialisations/specialisations.component';
 import { PhotosComponent } from './dashboard/photos/photos.component';
@@ -21,6 +21,7 @@ import { ReportsComponent } from './dashboard/reports/reports.component';
 import { ProblemsComponent } from './dashboard/problems/problems.component';
 import { SettingsComponent } from './dashboard/settings/settings.component';
 import { SafePipe } from './Pipes/safe.pipe';
+import { PopupComponent } from './components/dashboard/popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { SafePipe } from './Pipes/safe.pipe';
     ReportsComponent,
     ProblemsComponent,
     SettingsComponent,
-    SafePipe
+    SafePipe,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
