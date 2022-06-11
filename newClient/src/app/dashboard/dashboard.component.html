@@ -12,15 +12,15 @@
   <div class="content">
     <aside>
       <ul>
-        <li class="active"><a  [routerLink]="['/dashboard']"><img src="../../assets/icon-menu.png" alt="Dashboard home"><span>Dashboard</span></a></li>
-        <li><a [routerLink]="['reports']"><img src="../../assets/icon-key.png" alt="Reports"><span>Reports</span></a></li>
-        <li><a [routerLink]="['problems']"><img src="../../assets/icon-file.png" alt="Problems"><span>Problems</span></a></li>
-        <li><a [routerLink]="['administrations']"><img src="../../assets/icon-group.png" alt="Administration"><span>Administrations</span></a></li>
-        <li><a [routerLink]="['specialisations']"><img src="../../assets/icon-group.png" alt="Specialisation"><span>specialisations</span></a></li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }"><a  [routerLink]="['/dashboard']"><img src="../../assets/icon-menu.png" alt="Dashboard home"><span>Dashboard</span></a></li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }"><a [routerLink]="['reports']"><img src="../../assets/icon-key.png" alt="Reports"><span>Reports</span></a></li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }"><a [routerLink]="['problems']"><img src="../../assets/icon-file.png" alt="Problems"><span>Problems</span></a></li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }"><a [routerLink]="['administrations']"><img src="../../assets/icon-group.png" alt="Administration"><span>Administrations</span></a></li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }"><a [routerLink]="['specialisations']"><img src="../../assets/icon-group.png" alt="Specialisation"><span>specialisations</span></a></li>
       </ul>
       <ul>
-        <li><a [routerLink]="['settings']"><img src="../../assets/icon-settings.png" alt="Settings"><span>Settings</span></a></li>
-        <li><a (click)="logoutUser()" ><img src="../../assets/icon-exit.png" alt="Logout"><span>Logout</span></a></li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }"><a [routerLink]="['settings']"><img src="../../assets/icon-settings.png" alt="Settings"><span>Settings</span></a></li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }"><a (click)="logoutUser()" ><img src="../../assets/icon-exit.png" alt="Logout"><span>Logout</span></a></li>
       </ul>
     </aside>
     <main>

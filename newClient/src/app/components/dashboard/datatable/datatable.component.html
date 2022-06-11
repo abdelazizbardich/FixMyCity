@@ -5,14 +5,11 @@
     </thead>
     <tbody>
       <tr *ngFor="let row of rows">
-        <td *ngFor="let cel of row" [ngClass]="(!cel.val && !cel.actions)?'empty':''">
-          <span *ngIf="cel.key && cel.key.toLowerCase() != 'actions' && cel.link">
-            <span class="badge">
-              <a [routerLink]="[cel.link]">{{ cel.val }}</a>
-            </span>
+        <td [ngSwitch]="cel.key.toLowerCase()" *ngFor="let cel of row" [ngClass]="(!cel.val && !cel.actions)?'empty':''">
+          <span *ngSwitchCase="'phones'">
+            <a class="tel" [href]="'tel:'+phone" *ngFor="let phone of cel.val">{{ phone }}</a>
           </span>
-          <span *ngIf="cel.key && cel.key.toLowerCase() != 'actions' && !cel.link">{{ cel.val }}</span>
-          <span class="actions" *ngIf="cel.key && cel.key.toLowerCase() == 'actions'">
+          <span *ngSwitchCase="'actions'" class="actions">
             <span *ngFor="let action of cel.actions">
               <button class="view" *ngIf="action.action == 'view'" (click)="getView(action.id)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="11.038" height="11.038" viewBox="0 0 11.038 11.038">
@@ -40,10 +37,21 @@
               </button>
             </span>
           </span>
+          <span *ngSwitchCase="'link'">
+            <span class="badge">
+              <a [routerLink]="[cel.link]">{{ cel.val }}</a>
+            </span>
+          </span>
+          <span *ngSwitchCase="'map'" class="map">
+            <iframe width="100%"  height="70" frameborder="0"[src]="'https://www.google.com/maps/embed/v1/place?key=AIzaSyDn_s2NDJkI4Oz6YpULrEcGaqUJnRzV9tU&q='+cel.val[0]+', '+cel.val[1]+'&zoom=18' | safe"></iframe>
+
+            <a target="_blank" [href]="'https://maps.google.com/maps?ll='+cel.val[0]+','+cel.val[1]+'&z=18&t=m&hl=en-US&gl=US&mapclient=embed&q=31%C2%B038%2751.4%22N%207%C2%B059%2713.4%22W%20'+cel.val[0]+'%2C%20'+cel.val[1]+'@'+cel.val[0]+','+cel.val[1]" class="iframe-button">Full Map</a>
+          </span>
+          <span *ngSwitchDefault>{{ cel.val }}</span>
         </td>
       </tr>
       <tr *ngIf="rows.length == 0">
-        <td [attr.colspan]="cols.length" style="text-align: center;">({{ rows.length }}) No data found for this table!</td>
+        <td [attr.colspan]="cols.length" style="text-align: center;">No data found for this table!</td>
       </tr>
     </tbody>
   </table>
@@ -66,12 +74,12 @@
       </select>
       of {{ pagesCount }}
       <div class="nav">
-        <button disabled class="back" (click)="previousPage()">
+        <button [disabled]="activePage == 1" class="back" (click)="previousPage()">
           <svg xmlns="http://www.w3.org/2000/svg" width="7.987" height="13.141" viewBox="0 0 7.987 13.141">
-            <path id="Path" d="M10.313,0,5.156,5.158,0,0" transform="translate(6.572 1.414) rotate(90)" fill="none" stroke="#9d9d9d" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
+            <path id="Path" d="M10.313,0,5.156,5.158,0,0" transform="translate(6.572 1.414) rotate(90)" fill="none" stroke="#fff" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
           </svg>
         </button>
-        <button class="next" (click)="nextPage()">
+        <button [disabled]="pagesCount == activePage" class="next" (click)="nextPage()">
           <svg xmlns="http://www.w3.org/2000/svg" width="7.987" height="13.141" viewBox="0 0 7.987 13.141">
             <path id="Path" d="M10.313,5.158,5.156,0,0,5.158" transform="translate(6.572 1.414) rotate(90)" fill="none" stroke="#fff" stroke-linecap="square" stroke-miterlimit="10" stroke-width="2"/>
           </svg>

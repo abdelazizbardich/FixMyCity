@@ -22,8 +22,8 @@ export class AdministrationsComponent implements OnInit {
           {key:'username',val:item.login},
           {key:'email',val:item.email},
           {key:'phones',val:item.phones},
-          {key:'geo',val:item.lat+' / '+item.lan},
-          {key:'specialisation',val:item.specialisation.name,link:'specialisation/'+item.specialisation.id},
+          {key:'map',val:[item.lat,item.lan]},
+          {key:'link',val:item.specialisation.name,link:'/dashboard/specialisation/'+item.specialisation.id},
           {key:'actions',actions:[
             {action:"view",id:item.userId},
             {action:"edit",id:item.userId},
@@ -35,14 +35,14 @@ export class AdministrationsComponent implements OnInit {
   }
 
   edit(id:any){
-    console.log("==> edit: "+id);
+    alert("==> edit: "+id);
 
   }
   view(id:any){
-    console.log("==> View: "+id);
+    alert("==> View: "+id);
   }
   delete(id:any){
-    console.log("==> Delete: "+id);
+    alert("==> Delete: "+id);
   }
 
 

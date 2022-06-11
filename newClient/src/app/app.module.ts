@@ -20,6 +20,7 @@ import { PhotosComponent } from './dashboard/photos/photos.component';
 import { ReportsComponent } from './dashboard/reports/reports.component';
 import { ProblemsComponent } from './dashboard/problems/problems.component';
 import { SettingsComponent } from './dashboard/settings/settings.component';
+import { SafePipe } from './Pipes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SettingsComponent } from './dashboard/settings/settings.component';
     PhotosComponent,
     ReportsComponent,
     ProblemsComponent,
-    SettingsComponent
+    SettingsComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
