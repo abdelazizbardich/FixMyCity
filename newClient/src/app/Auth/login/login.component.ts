@@ -27,8 +27,9 @@ export class LoginComponent implements OnInit {
 
   loginUser(event:any){
     event.preventDefault();
-    this.auth.login(this.login,this.password).subscribe((res:any) =>{
+    this.auth.login(this.login,this.password).subscribe((res:any,err:any) =>{
       window.localStorage.setItem(`${environment.app_id}_token`,res.body.token);
+      window.localStorage.setItem(`${environment.app_id}_user`,JSON.stringify(res.body.user));
       this.router.navigateByUrl('/dashboard');
     })
   }

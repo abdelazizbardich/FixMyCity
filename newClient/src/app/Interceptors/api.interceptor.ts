@@ -25,14 +25,15 @@ export class APIInterceptor implements HttpInterceptor {
       this.router.navigateByUrl('/auth/login')
     }
     // Clone the request to add the new header and url
-    return next.handle(httpRequest.clone({url:environment.api_base+httpRequest.clone().url,setHeaders:headers})).pipe(
-      catchError( response => {
-        // Send to login page if unauthorized
-        if(response.status === 403) {
-          this.router.navigateByUrl('/auth/login');
-        }
-        return throwError(response.error);
-      })
-      );
+    return next.handle(httpRequest.clone({url:environment.api_base+httpRequest.clone().url,setHeaders:headers}))
+    // .pipe(
+    //   catchError( response => {
+    //     // Send to login page if unauthorized
+    //     if(response.status === 403) {
+    //       // this.router.navigateByUrl('/auth/login');
+    //     }
+    //     return throwError(response.error);
+    //   })
+      // );
    }
 }

@@ -28,8 +28,8 @@ public class Report implements Serializable {
     private String note;
     @ManyToOne
     private Problem problem;
-    @OneToMany
-    private List<Photo> photos;
+    @Column(name = "photo")
+    private String photo;
     @Column(name = "created_at")
     private Timestamp createdAt;
 

@@ -63,6 +63,7 @@
             align-items: center;
             padding: 1.5rem 2rem;
             text-decoration: none;
+            color: rgba($dark, 0.7);
             cursor: pointer;
             user-select: none;
             span{
@@ -73,16 +74,20 @@
             background-color: rgba($green, 0.1);
           }
           &.active{
+            // background-color: rgba($green, 0.1);
             position: relative;
             border-left: 8px solid transparent;
+            a{
+              color: $green;
+            }
             &::before{
               content: "";
               position: absolute;
-              top: 0;
+              top: 10%;
               left: 5px;
-              width: 8px;
+              width: 5px;
               border-radius: 4px;
-              height: 100%;
+              height: 80%;
               background-color: $green;
               z-index: -1;
             }
@@ -100,61 +105,6 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      .body{
-        .bradcrump{
-          padding: 2rem 1rem;
-          width: 100%;
-          margin-bottom: 1.5rem;
-          .title{
-            font-size: 1.3rem;
-            font-weight: 600;
-            span{
-              font-weight: 400;
-              font-size: 1rem;
-              opacity: .67;
-            }
-          }
-        }
-        .stats{
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 1rem;
-          width: 100%;
-          .stat{
-            display: flex;
-            align-items: center;
-            .icon{
-              margin-right: 1rem;
-              font-size: 2rem;
-              height: 60px;
-              width: 60px;
-              color: $white;
-              background-color: $lightGreen;
-              border-radius: 4px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
-            .number{
-              display: flex;
-              flex-direction: column;
-              justify-content: flex-start;
-              span{
-                font-size: 1.2rem;
-                font-weight: 600;
-                &.label{
-                  font-size: .8rem;
-                  font-weight: 400;
-                }
-              }
-            }
-          }
-        }
-        .datatable{
-          padding: 1rem;
-        }
-      }
       footer{
         position: sticky;
         bottom: 0;

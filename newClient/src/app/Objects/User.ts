@@ -1,13 +1,13 @@
 import {Role} from "./Role";
 export interface User{
-    id: number;
-    firstName: string;
-    lastName: string;
-    email: string;
-    username: string;
-    password: string;
-    rememberToken: string;
+    userId: number;
+    firstName: String;
+    lastName: String;
+    email: String;
+    login: String;
+    password: String;
+    rememberToken: String;
     isActive: boolean;
-    role: Role;
-    createdAt: Date;
+    role: Role | undefined;
+    createdAt: Date | undefined;
 }

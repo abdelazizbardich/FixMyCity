@@ -44,7 +44,7 @@ public class AuthController {
             if(!passwordEncoder.matches(password, userDetails.getPassword())){
                 return ResponseEntity.status(HttpStatus.FORBIDDEN).body(Map.of("error","Wrong password!"));
             }
-            return ResponseEntity.ok().body(Map.of("token", jwtUtil.generateToken(userDetails)));
+            return ResponseEntity.ok().body(Map.of("token", jwtUtil.generateToken(userDetails),"user", userDetails));
         }
         catch (UsernameNotFoundException e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("error",e.getMessage()));

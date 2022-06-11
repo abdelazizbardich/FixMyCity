@@ -1,0 +1,8 @@
+<div class="body">
+  <app-jumbotron [title]="'Administrations overview'" [actions]="[{title:'Add',color:'green',url:'/'}]" ></app-jumbotron>
+  <div class="content">
+    <div class="datatable">
+      <app-datatable [cols]="cols" [data]="administrations" (onView)="view($event)" (onEdit)="edit($event)" (onDelete)="delete($event)"></app-datatable>
+    </div>
+  </div>
+</div>

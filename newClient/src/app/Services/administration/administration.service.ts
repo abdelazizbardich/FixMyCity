@@ -1,6 +1,6 @@
+import { Administration } from './../../Objects/Administration';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { administration } from 'src/app/Objects/Administration';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +14,12 @@ export class AdministrationService {
   constructor(private http:HttpClient) { }
 
   get():any{
-    return this.http.get<HttpResponse<any[]>>(`/administration/`,this.headers)
+    return this.http.get<HttpResponse<Administration[]>>(`/administration/`,this.headers)
   }
   add():any{
     return this.http.post<HttpResponse<any>>(`/administration/`,{},this.headers)
   }
-  update(admin:administration):any{
+  update(admin:Administration):any{
     return this.http.put<HttpResponse<any>>(`/administration/`,admin,this.headers)
   }
   delete(id:number):any{

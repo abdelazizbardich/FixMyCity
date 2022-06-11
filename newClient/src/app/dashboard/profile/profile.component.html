@@ -1,0 +1,40 @@
+<div class="body">
+  <app-jumbotron [title]="'User profil'" [actions]="[{title:'Add',color:'green',url:'/'}]" ></app-jumbotron>
+  <div class="content">
+      <form (submit)="update($event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName" class="form-label">First name</label>
+            <input required id="firstName" class="form-field" type="text" class="form-field" (keyup)="setValue('firstName',$event)" [value]="profile.firstName" placeholder="Your first name...">
+          </div>
+          <div class="form-group">
+            <label for="lastName" class="form-label">Last name</label>
+            <input required id="lastName" class="form-field" type="text" class="form-field" (keyup)="setValue('lastName',$event)" [value]="profile.lastName" placeholder="Your last name...">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email" class="form-label">Email address</label>
+            <input required id="email" class="form-field" type="email" class="form-field" (keyup)="setValue('email',$event)" [value]="profile.email" placeholder="Your email address...">
+          </div>
+          <div class="form-group">
+            <label for="username" class="form-label">Username</label>
+            <input id="username" class="form-field" type="text" readonly class="form-field" readonly [value]="profile.username" placeholder="Your username...">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="password" class="form-label">Password</label>
+            <input class="form-field" id="password" type="password" class="form-field" (keyup)="setValue('password',$event)" placeholder="Your password...">
+          </div>
+          <div class="form-group">
+            <label for="passwordConfirmation" class="form-label">Confirm password</label>
+            <input id="passwordConfirmation" class="form-field" (keyup)="setValue('passwordConfirmation',$event)" type="password" class="form-field" placeholder="Confirm your password...">
+          </div>
+        </div>
+        <div class="form-group">
+          <button class="form-button" type="submit">Save</button>
+        </div>
+      </form>
+  </div>
+</div>

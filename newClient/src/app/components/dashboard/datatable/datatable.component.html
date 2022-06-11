@@ -5,38 +5,45 @@
     </thead>
     <tbody>
       <tr *ngFor="let row of rows">
-        <td *ngFor="let cel of row">
-          <span *ngIf="cel.key && cel.key.toLowerCase() != 'actions'">{{ cel.val }}</span>
+        <td *ngFor="let cel of row" [ngClass]="(!cel.val && !cel.actions)?'empty':''">
+          <span *ngIf="cel.key && cel.key.toLowerCase() != 'actions' && cel.link">
+            <span class="badge">
+              <a [routerLink]="[cel.link]">{{ cel.val }}</a>
+            </span>
+          </span>
+          <span *ngIf="cel.key && cel.key.toLowerCase() != 'actions' && !cel.link">{{ cel.val }}</span>
           <span class="actions" *ngIf="cel.key && cel.key.toLowerCase() == 'actions'">
-            <button class="view" *ngIf="cel.val.view" (click)="getView(cel.val.id)">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11.038" height="11.038" viewBox="0 0 11.038 11.038">
-                <path id="Icon_open-magnifying-glass" data-name="Icon open-magnifying-glass" d="M4.786-.031a4.786,4.786,0,1,0,0,9.572,4.73,4.73,0,0,0,2.27-.561,1.367,1.367,0,0,0,.178.178L8.6,10.525A1.395,1.395,0,1,0,10.57,8.556L9.2,7.189a1.367,1.367,0,0,0-.219-.178,4.722,4.722,0,0,0,.6-2.27A4.791,4.791,0,0,0,4.8-.045Zm0,1.367A3.4,3.4,0,0,1,8.2,4.755a3.429,3.429,0,0,1-.9,2.352l-.041.041a1.367,1.367,0,0,0-.178.178,3.422,3.422,0,0,1-2.311.861,3.418,3.418,0,1,1,0-6.837Z" transform="translate(0 0.045)" fill="#FFF"/>
-              </svg>
-            </button>
-            <button class="edit" *ngIf="cel.val.edit" (click)="getEdit(cel.val.id)">
-              <svg xmlns="http://www.w3.org/2000/svg" width="12.196" height="11.65" viewBox="0 0 12.196 11.65">
-                <g id="Icon_feather-edit-3" data-name="Icon feather-edit-3" transform="translate(-4 -3.818)">
-                  <path id="Path_34341" data-name="Path 34341" d="M18,30h5.6" transform="translate(-7.902 -15.032)" fill="none" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-                  <path id="Path_34342" data-name="Path 34342" d="M12.9,4.7a1.319,1.319,0,1,1,1.866,1.866L6.988,14.346,4.5,14.968l.622-2.488Z" fill="none" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-                </g>
-              </svg>
-            </button>
-            <button class="delete" *ngIf="cel.val.delete" (click)="getDelete(cel.val.id)">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11.515" height="12.684" viewBox="0 0 11.515 12.684">
-                <g id="Icon_feather-trash-2" data-name="Icon feather-trash-2" transform="translate(-4 -2.5)">
-                  <path id="Path_34341" data-name="Path 34341" d="M4.5,9H15.015" transform="translate(0 -3.663)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-                  <path id="Path_34342" data-name="Path 34342" d="M15.679,5.337v8.179a1.168,1.168,0,0,1-1.168,1.168H8.668A1.168,1.168,0,0,1,7.5,13.515V5.337m1.753,0V4.168A1.168,1.168,0,0,1,10.421,3h2.337a1.168,1.168,0,0,1,1.168,1.168V5.337" transform="translate(-1.832)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-                  <path id="Path_34343" data-name="Path 34343" d="M15,16.5v3.505" transform="translate(-6.411 -8.242)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-                  <path id="Path_34344" data-name="Path 34344" d="M21,16.5v3.505" transform="translate(-10.074 -8.242)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
-                </g>
-              </svg>
+            <span *ngFor="let action of cel.actions">
+              <button class="view" *ngIf="action.action == 'view'" (click)="getView(action.id)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11.038" height="11.038" viewBox="0 0 11.038 11.038">
+                  <path id="Icon_open-magnifying-glass" data-name="Icon open-magnifying-glass" d="M4.786-.031a4.786,4.786,0,1,0,0,9.572,4.73,4.73,0,0,0,2.27-.561,1.367,1.367,0,0,0,.178.178L8.6,10.525A1.395,1.395,0,1,0,10.57,8.556L9.2,7.189a1.367,1.367,0,0,0-.219-.178,4.722,4.722,0,0,0,.6-2.27A4.791,4.791,0,0,0,4.8-.045Zm0,1.367A3.4,3.4,0,0,1,8.2,4.755a3.429,3.429,0,0,1-.9,2.352l-.041.041a1.367,1.367,0,0,0-.178.178,3.422,3.422,0,0,1-2.311.861,3.418,3.418,0,1,1,0-6.837Z" transform="translate(0 0.045)" fill="#FFF"/>
+                </svg>
+              </button>
+              <button class="edit" *ngIf="action.action == 'edit'" (click)="getEdit(action.id)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12.196" height="11.65" viewBox="0 0 12.196 11.65">
+                  <g id="Icon_feather-edit-3" data-name="Icon feather-edit-3" transform="translate(-4 -3.818)">
+                    <path id="Path_34341" data-name="Path 34341" d="M18,30h5.6" transform="translate(-7.902 -15.032)" fill="none" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                    <path id="Path_34342" data-name="Path 34342" d="M12.9,4.7a1.319,1.319,0,1,1,1.866,1.866L6.988,14.346,4.5,14.968l.622-2.488Z" fill="none" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                  </g>
+                </svg>
+              </button>
+              <button class="delete" *ngIf="action.action == 'delete'" (click)="getDelete(action.id)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="11.515" height="12.684" viewBox="0 0 11.515 12.684">
+                  <g id="Icon_feather-trash-2" data-name="Icon feather-trash-2" transform="translate(-4 -2.5)">
+                    <path id="Path_34341" data-name="Path 34341" d="M4.5,9H15.015" transform="translate(0 -3.663)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                    <path id="Path_34342" data-name="Path 34342" d="M15.679,5.337v8.179a1.168,1.168,0,0,1-1.168,1.168H8.668A1.168,1.168,0,0,1,7.5,13.515V5.337m1.753,0V4.168A1.168,1.168,0,0,1,10.421,3h2.337a1.168,1.168,0,0,1,1.168,1.168V5.337" transform="translate(-1.832)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                    <path id="Path_34343" data-name="Path 34343" d="M15,16.5v3.505" transform="translate(-6.411 -8.242)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                    <path id="Path_34344" data-name="Path 34344" d="M21,16.5v3.505" transform="translate(-10.074 -8.242)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+                  </g>
+                </svg>
 
-            </button>
+              </button>
+            </span>
           </span>
         </td>
       </tr>
-      <tr>
-        <td [attr.colspan]="cols.length" style="text-align: center;">No data found for this table!</td>
+      <tr *ngIf="rows.length == 0">
+        <td [attr.colspan]="cols.length" style="text-align: center;">({{ rows.length }}) No data found for this table!</td>
       </tr>
     </tbody>
   </table>

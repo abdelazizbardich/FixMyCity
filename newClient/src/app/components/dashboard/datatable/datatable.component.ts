@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
 
 @Component({
   selector: 'app-datatable',
@@ -7,16 +7,27 @@ import { Component, Input, OnInit } from '@angular/core'
 })
 export class DatatableComponent implements OnInit {
 
+  @Output() onView = new EventEmitter<string>();
+  @Output() onEdit = new EventEmitter<string>();
+  @Output() onDelete = new EventEmitter<string>();
+
+
+
+
   @Input() cols:any[] = []
   rows:any[][] = [[]]
   @Input() pageSize: number = 8
   activePage:number = 1
   pagesCount:number = 0
-  @Input() data:any[][] = [[{}]]
+  @Input() data:any = [[{}]]
 
   constructor() { }
 
   ngOnInit(): void {
+    this.setData()
+  }
+
+  ngOnChanges(data: any) {
     this.setData()
   }
 
@@ -47,12 +58,15 @@ export class DatatableComponent implements OnInit {
 
   getView(id:any){
     console.log("View: "+id)
+    this.onView.emit(id)
   }
   getEdit(id:any){
     console.log("Edit: "+id)
+    this.onEdit.emit(id)
   }
   getDelete(id:any){
     console.log("Delete: "+id)
+    this.onDelete.emit(id)
   }
 
 }

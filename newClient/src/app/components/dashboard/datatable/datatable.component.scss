@@ -46,6 +46,9 @@
         }
         td{
           padding: 1rem 1rem;
+          &.empty{
+            background: repeating-linear-gradient(-45deg,rgba($dark,10%),rgba($dark,10%) 10px,rgba($dark,5%) 10px,rgba($dark,5%) 20px);
+          }
           .actions{
             button{
               padding: .5rem;
@@ -65,6 +68,20 @@
               &.delete{
                 background-color: $red;
               }
+            }
+          }
+          .badge a{
+            padding: .5rem;
+            margin: .1rem;
+            border-radius: 4px;
+            background-color: $darkGreen;
+            font-size: .9rem;
+            text-decoration: none;
+            color: $white;
+            display: inline-block;
+            cursor: pointer;
+            &:hover{
+              transform: scale(1.01) scale(1.03);
             }
           }
         }

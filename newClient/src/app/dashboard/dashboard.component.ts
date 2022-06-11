@@ -1,3 +1,4 @@
+import { User } from './../Objects/User';
 import { Router } from '@angular/router';
 import { AdminService } from './../Services/admin/admin.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,17 +11,29 @@ import { environment } from 'src/environments/environment';
 })
 export class DashboardComponent implements OnInit {
 
-  reports:any = [];
   thisYear:number = new Date().getFullYear();
   constructor(private adminService:AdminService,private router:Router) { }
-
+  user:User = {
+    userId: 0,
+    firstName: '',
+    lastName: '',
+    email: '',
+    login: '',
+    password: '',
+    rememberToken: '',
+    isActive: false,
+    role: undefined,
+    createdAt: undefined
+  };
   ngOnInit(): void {
-    this.adminService.get().subscribe((res:any) =>{
-      console.log(res);
-    })
+    const user = window.localStorage.getItem(`${environment.app_id}_user`);
+    if(user != null && user != undefined){
+      this.user = JSON.parse(user).user;
+    }
   }
 
   logoutUser(){
+    window.localStorage.removeItem(`${environment.app_id}_user`);
     window.localStorage.removeItem(`${environment.app_id}_token`);
     this.router.navigateByUrl('/auth/login');
   }

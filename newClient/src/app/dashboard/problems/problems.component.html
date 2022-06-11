@@ -1,0 +1,8 @@
+<div class="body">
+  <app-jumbotron [title]="'Problems overview'" [actions]="[{title:'Add',color:'green',url:'/'}]" ></app-jumbotron>
+  <div class="content">
+    <div class="datatable">
+      <app-datatable [cols]="['Problem','Localisation','Status','Note','Photos','created at','Actions']" [data]="[]" ></app-datatable>
+    </div>
+  </div>
+</div>
