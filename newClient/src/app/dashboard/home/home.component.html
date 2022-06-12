@@ -1,8 +1,7 @@
 <div class="body">
   <div class="bradcrump">
-    <div class="title">FixMyCity <span>Overview</span></div>
-    <div class="actions"></div>
-  </div>
+  <app-jumbotron [title]="'Overview'">
+  </app-jumbotron>
   <div class="stats">
     <div class="stat">
       <div class="icon">R</div>
@@ -82,38 +81,6 @@
           <textarea class="form-field" type="text"  disabled [value]="activeReport.note" rows="7"></textarea>
         </div>
       </div>
-      <!-- <div class="form-row">
-        <div class="form-group">
-          <label class="form-label" for="">Phones</label>
-          <input class="form-field" type="text"  disabled [value]="activeAdministration.phones[0]">
-        </div>
-        <div class="form-group">
-          <input class="form-field" type="text"  disabled [value]="activeAdministration.phones[0]">
-        </div>
-        <div class="form-group">
-          <input class="form-field" type="text"  disabled [value]="activeAdministration.phones[0]">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label" for="">Geo localisation</label>
-          <input class="form-field" type="text"  disabled [value]="activeAdministration.lat">
-        </div>
-        <div class="form-group">
-          <input class="form-field" type="text"  disabled [value]="activeAdministration.lan">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <iframe width="100%"  height="100" frameborder="0"[src]="'https://www.google.com/maps/embed/v1/place?key=AIzaSyDn_s2NDJkI4Oz6YpULrEcGaqUJnRzV9tU&q='+activeAdministration.lat+', '+activeAdministration.lan+'&zoom=18' | safe"></iframe>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label" for="">Specialisation:</label>
-          <input class="form-field" type="text"  disabled [value]="activeAdministration.specialisation.name">
-        </div>
-      </div> -->
     </form>
   </app-popup>
 </div>

@@ -57,15 +57,12 @@ export class DatatableComponent implements OnInit {
   }
 
   getView(id:any){
-    console.log("View: "+id)
     this.onView.emit(id)
   }
   getEdit(id:any){
-    console.log("Edit: "+id)
     this.onEdit.emit(id)
   }
   getDelete(id:any){
-    console.log("Delete: "+id)
     this.onDelete.emit(id)
   }
 

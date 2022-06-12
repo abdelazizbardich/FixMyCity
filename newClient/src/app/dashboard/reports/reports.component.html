@@ -1,8 +1,81 @@
 <div class="body">
-  <app-jumbotron [title]="'Reports overview'" [actions]="[{title:'Add',color:'green',url:'/'}]" ></app-jumbotron>
+  <app-jumbotron [title]="'Reports overview'" [actions]="[{title:'Add',color:'green',url:'/'}]" >
+  </app-jumbotron>
   <div class="content">
     <div class="datatable">
-      <app-datatable [cols]="['Problem','Localisation','Status','Note','Photos','created at','Actions']" [data]="[]" ></app-datatable>
+      <app-datatable [cols]="['Problem','Localisation','Status','Note','created at','Actions']" [data]="reportsTable"  (onView)="callView($event)" (onDelete)="callDelete($event)" (onEdit)="callEdit($event)" ></app-datatable>
     </div>
   </div>
+<!-- View popup -->
+<app-popup *ngIf="isViewing" (onClose)="callClose()" [title]="'View report'">
+  <form>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="">Problem</label>
+        <input class="form-field" type="text"  disabled [value]="activeReport.problem?.name">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="">Status</label>
+        <select class="form-field" name="" id="" disabled [value]="activeReport.status">
+          <option value="0" [selected]="!activeReport.status">In active</option>
+          <option value="1" [selected]="activeReport.status">Active</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="">Localisation</label>
+        <input class="form-field" type="text"  disabled [value]="activeReport.lat">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for=""></label>
+        <input class="form-field" type="text"  disabled [value]="activeReport.lan">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="">Problem</label>
+        <textarea class="form-field" type="text"  disabled [value]="activeReport.note" rows="7"></textarea>
+      </div>
+    </div>
+  </form>
+</app-popup>
+<!-- Edit popup -->
+<app-popup *ngIf="isEditing" (onUpdate)="edit()" (onClose)="callClose()" [title]="'Edit report'">
+  <form>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="">Problem</label>
+        <input class="form-field" type="text"  disabled [value]="activeReport.problem?.name">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="">Status</label>
+        <select class="form-field" name="" id="" (change)="setStatus($event)" [value]="activeReport.status">
+          <option value="0" [selected]="!activeReport.status">In active</option>
+          <option value="1" [selected]="activeReport.status">Active</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="">Localisation</label>
+        <input class="form-field" type="text"  disabled [value]="activeReport.lat">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for=""></label>
+        <input class="form-field" type="text"  disabled [value]="activeReport.lan">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="">Problem</label>
+        <textarea class="form-field" type="text"  disabled [value]="activeReport.note" rows="7"></textarea>
+      </div>
+    </div>
+  </form>
+</app-popup>
+<!-- Delete popup -->
+<app-popup *ngIf="isDeletting" (onDelete)="delete()" (onClose)="callClose()" [title]="'Delete administration'">
+  <p>Are you sure you want to delete this administration?</p>
+</app-popup>
 </div>
