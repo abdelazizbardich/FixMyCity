@@ -1,3 +1,4 @@
+import { AdminGuard } from './guards/role/admin.guard';
 import { ProblemsComponent } from './dashboard/problems/problems.component';
 import { SpecialisationsComponent } from './dashboard/specialisations/specialisations.component';
 import { ReportsComponent } from './dashboard/reports/reports.component';
@@ -27,11 +28,11 @@ const routes: Routes = [
     {path:"",component:HomeComponent},
     {path:"profil",component:ProfileComponent},
     {path:"reports",component:ReportsComponent},
-    {path:"administrations",component:AdministrationsComponent},
-    {path:"problems",component:ProblemsComponent},
-    {path:"settings",component:SettingsComponent},
-    {path:"specialisations",component:SpecialisationsComponent},
-    {path:"specialisation/:id",component:SpecialisationsComponent},
+    {path:"administrations",component:AdministrationsComponent,canActivate:[AdminGuard]},
+    {path:"problems",component:ProblemsComponent,canActivate:[AdminGuard]},
+    {path:"settings",component:SettingsComponent,canActivate:[AdminGuard]},
+    {path:"specialisations",component:SpecialisationsComponent,canActivate:[AdminGuard]},
+    {path:"specialisation/:id",component:SpecialisationsComponent,canActivate:[AdminGuard]},
     // {path:"photos",component:PhotosComponent},
   ]}
 ];
