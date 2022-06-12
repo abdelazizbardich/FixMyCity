@@ -18,7 +18,7 @@ export class AdministrationsComponent implements OnInit {
     "Username",
     "Email",
     "Phones",
-    // "Geo localisation",
+    "Geo localisation",
     "Specialisation",
     'Actions'
   ];
@@ -56,7 +56,7 @@ export class AdministrationsComponent implements OnInit {
           {key:'username',val:item.login},
           {key:'email',val:item.email},
           {key:'phones',val:item.phones},
-          // {key:'map',val:[item.lat,item.lan]},
+          {key:'map',val:[item.lat,item.lan]},
           {key:'link',val:item.specialisation.name,link:'/dashboard/specialisation/'+item.specialisation.id},
           {key:'actions',actions:[
             {action:"view",id:item.userId},
@@ -76,17 +76,15 @@ export class AdministrationsComponent implements OnInit {
     this.isCreating = true;
   }
   callEdit(id:any){
-	this.activeAdministration = this.servicesData.filter(item=>item.userId == id)[0];
-  this.formData.username = this.activeAdministration.login;
-  this.formData.email = this.activeAdministration.email;
-  this.formData.phone_1 = this.activeAdministration.phones[0];
-  this.formData.phone_2 = this.activeAdministration.phones[1];
-  this.formData.phone_3 = this.activeAdministration.phones[2];
-  this.formData.lat = this.activeAdministration.lat;
-  this.formData.lan = this.activeAdministration.lan;
-  this.formData.specialisation = this.activeAdministration.specialisation.id;
-  console.log(this.formData);
-
+    this.activeAdministration = this.servicesData.filter(item=>item.userId == id)[0];
+    this.formData.username = this.activeAdministration.login;
+    this.formData.email = this.activeAdministration.email;
+    this.formData.phone_1 = this.activeAdministration.phones[0];
+    this.formData.phone_2 = this.activeAdministration.phones[1];
+    this.formData.phone_3 = this.activeAdministration.phones[2];
+    this.formData.lat = this.activeAdministration.lat;
+    this.formData.lan = this.activeAdministration.lan;
+    this.formData.specialisation = this.activeAdministration.specialisation.id;
     this.isEditing = true;
   }
   callDelete(id:any){
@@ -139,8 +137,6 @@ export class AdministrationsComponent implements OnInit {
       return;
     }
     if(this.formData.username == null || this.formData.email == null || this.formData.specialisation == null){
-      console.log(this.formData.username,this.formData.email,this.formData.specialisation);
-
       alert("All fields are required");
       return;
     }

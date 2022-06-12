@@ -5,49 +5,115 @@
   </div>
   <div class="stats">
     <div class="stat">
-      <div class="icon">D</div>
+      <div class="icon">R</div>
       <div class="number">
-        <span>22</span>
-        <span class="label">Registred users</span>
+        <span>{{ reports.length }}</span>
+        <span class="label">Reported case</span>
       </div>
     </div>
     <div class="stat">
-      <div class="icon">D</div>
+      <div class="icon">P</div>
       <div class="number">
-        <span>150</span>
+        <span>{{ problems.length }}</span>
         <span class="label">Problem solved</span>
       </div>
     </div>
     <div class="stat">
-      <div class="icon">D</div>
+      <div class="icon">S</div>
       <div class="number">
-        <span>72</span>
-        <span class="label">Problem reported</span>
+        <span>{{ specialisations.length }}</span>
+        <span class="label">Specialisation reported</span>
       </div>
     </div>
     <div class="stat">
-      <div class="icon">D</div>
+      <div class="icon">A</div>
       <div class="number">
-        <span>13</span>
-        <span class="label">Problem gategories</span>
+        <span>{{ administrations.length }}</span>
+        <span class="label">Administration</span>
       </div>
     </div>
     <div class="stat">
-      <div class="icon">D</div>
+      <div class="icon">U</div>
       <div class="number">
-        <span>90</span>
+        <span>{{ users.length }}</span>
         <span class="label">App user</span>
       </div>
     </div>
     <div class="stat">
-      <div class="icon">D</div>
+      <div class="icon">M</div>
       <div class="number">
-        <span>2</span>
+        <span>{{ admins.length }}</span>
         <span class="label">App manager</span>
       </div>
     </div>
   </div>
   <div class="datatable">
-    <app-datatable [cols]="['Problem','Localisation','Status','Note','Photos','created at','Actions']" [data]="reports" ></app-datatable>
+    <app-datatable [cols]="['Problem','Localisation','Status','Note','created at','Actions']" [data]="reportsTable"  (onView)="callView($event)"></app-datatable>
   </div>
+  <!-- View popup -->
+  <app-popup *ngIf="isViewing" (onClose)="callClose()" [title]="'View report'">
+    <form>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="">Problem</label>
+          <input class="form-field" type="text"  disabled [value]="activeReport.problem.name">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="">Status</label>
+          <select class="form-field" name="" id="" disabled [value]="activeReport.status">
+            <option value="0" [selected]="!activeReport.status">In active</option>
+            <option value="1" [selected]="activeReport.status">Active</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="">Localisation</label>
+          <input class="form-field" type="text"  disabled [value]="activeReport.lat">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for=""></label>
+          <input class="form-field" type="text"  disabled [value]="activeReport.lan">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="">Problem</label>
+          <textarea class="form-field" type="text"  disabled [value]="activeReport.note" rows="7"></textarea>
+        </div>
+      </div>
+      <!-- <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="">Phones</label>
+          <input class="form-field" type="text"  disabled [value]="activeAdministration.phones[0]">
+        </div>
+        <div class="form-group">
+          <input class="form-field" type="text"  disabled [value]="activeAdministration.phones[0]">
+        </div>
+        <div class="form-group">
+          <input class="form-field" type="text"  disabled [value]="activeAdministration.phones[0]">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="">Geo localisation</label>
+          <input class="form-field" type="text"  disabled [value]="activeAdministration.lat">
+        </div>
+        <div class="form-group">
+          <input class="form-field" type="text"  disabled [value]="activeAdministration.lan">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <iframe width="100%"  height="100" frameborder="0"[src]="'https://www.google.com/maps/embed/v1/place?key=AIzaSyDn_s2NDJkI4Oz6YpULrEcGaqUJnRzV9tU&q='+activeAdministration.lat+', '+activeAdministration.lan+'&zoom=18' | safe"></iframe>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="">Specialisation:</label>
+          <input class="form-field" type="text"  disabled [value]="activeAdministration.specialisation.name">
+        </div>
+      </div> -->
+    </form>
+  </app-popup>
 </div>
