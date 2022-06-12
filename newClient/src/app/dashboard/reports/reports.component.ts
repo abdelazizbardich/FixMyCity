@@ -10,6 +10,7 @@ import * as moment from 'moment';
 })
 export class ReportsComponent implements OnInit {
 
+  cols:String[] = ['','Problem','Localisation','Status','Note','created at','Actions'];
   reports:Report[] = [];
   reportsTable:any[] = [];
   activeReport:Report  = {
@@ -36,6 +37,7 @@ export class ReportsComponent implements OnInit {
     this.reportsTable = this.reports.map(report => {
       const status = report.status == true ? 'Active' : 'Inactive';
       return [
+        {key:'image',val:report.problem?.name,path:report.problem?.icon}, // problem
         {key:'problem',val:report.problem?.name}, // problem
         {key:'map',val:[report.lat,report.lan]},  // localisation
         {key:'status',val:status}, // status

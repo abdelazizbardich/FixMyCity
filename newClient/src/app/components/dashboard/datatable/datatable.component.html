@@ -6,7 +6,7 @@
     <tbody>
       <tr *ngFor="let row of rows">
         <td [ngSwitch]="cel.key.toLowerCase()" *ngFor="let cel of row" [ngClass]="(!cel.val && !cel.actions)?'empty':''">
-          <span *ngSwitchCase="'phones'">
+          <span *ngSwitchCase="'phones'" class="phones">
             <a class="tel" [href]="'tel:'+phone" *ngFor="let phone of cel.val">{{ phone }}</a>
           </span>
           <span *ngSwitchCase="'actions'" class="actions">
@@ -42,10 +42,15 @@
               <a [routerLink]="[cel.link]">{{ cel.val }}</a>
             </span>
           </span>
+          <span *ngSwitchCase="'image'">
+            <span class="image">
+              <img [src]="cel.path" (click)="showCastImage(cel.path)" [alt]="cel.val"/>
+            </span>
+          </span>
           <span *ngSwitchCase="'map'" class="map">
-            <iframe width="100%"  height="70" frameborder="0"[src]="'https://www.google.com/maps/embed/v1/place?key=AIzaSyDn_s2NDJkI4Oz6YpULrEcGaqUJnRzV9tU&q='+cel.val[0]+', '+cel.val[1]+'&zoom=18' | safe"></iframe>
+            <iframe width="100%"  height="70" frameborder="0"[src]="'https://www.google.com/maps/embed/v1/place?key=AIzaSyDn_s2NDJkI4Oz6YpULrEcGaqUJnRzV9tU&q='+cel.val[0]+', '+cel.val[1]+'&zoom=16' | safe"></iframe>
 
-            <a target="_blank" [href]="'https://maps.google.com/maps?ll='+cel.val[0]+','+cel.val[1]+'&z=18&t=m&hl=en-US&gl=US&mapclient=embed&q=31%C2%B038%2751.4%22N%207%C2%B059%2713.4%22W%20'+cel.val[0]+'%2C%20'+cel.val[1]+'@'+cel.val[0]+','+cel.val[1]" class="iframe-button">Full Map</a>
+            <a target="_blank" [href]="'https://maps.google.com/maps?ll='+cel.val[0]+','+cel.val[1]+'&z=16&t=m&hl=en-US&gl=US&mapclient=embed&q=31%C2%B038%2751.4%22N%207%C2%B059%2713.4%22W%20'+cel.val[0]+'%2C%20'+cel.val[1]+'@'+cel.val[0]+','+cel.val[1]" class="iframe-button">Full Map</a>
           </span>
           <span *ngSwitchDefault>{{ cel.val }}</span>
         </td>
@@ -87,4 +92,8 @@
       </div>
     </div>
   </div>
+  <!-- View popup -->
+<app-popup *ngIf="isViewing" (onClose)="callClose()" [title]="'View Image'">
+  <img [src]="showCast" width="100%" alt="preview">
+</app-popup>
 </div>

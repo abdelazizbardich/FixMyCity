@@ -26,8 +26,8 @@ public class ReportSeeder {
     public void Seed(int count){
         for (int i = 1;i<=count;i++){
             Report report = new Report();
-            report.setLat("34,355435");
-            report.setLan("54,332452");
+            report.setLat("34.032109");
+            report.setLan("-6.806705");
             report.setNote("Somple note "+i);
             report.setPhoto("https://store-images.s-microsoft.com/image/apps.14591.9a19b1cb-7ffc-4b32-bf97-25ef75ec69a3.753de052-0f07-4e5e-a20d-e4d5688136af.e2247862-7caa-44e8-8915-ca934ab9b663.png");
             List<Problem> problems = problemService.getAll();

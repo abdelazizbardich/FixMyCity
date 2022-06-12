@@ -41,8 +41,8 @@ public class AdministrationSeeder {
             administration.setFirstName (null);
             administration.setIsActive (true);
             administration.setLastName (null);
-            administration.setLan("33,432543");
-            administration.setLan("76,37846");
+            administration.setLat("34.032109");
+            administration.setLan("-6.806705");
             ArrayList<String> phones = new ArrayList<String>();
             phones.add("+212061234560"+i);
             phones.add("+212061234561"+i);

@@ -20,6 +20,8 @@ export class DatatableComponent implements OnInit {
   activePage:number = 1
   pagesCount:number = 0
   @Input() data:any = [[{}]]
+  isViewing:boolean = false;
+  showCast:String| null = null;
 
   constructor() { }
 
@@ -64,6 +66,15 @@ export class DatatableComponent implements OnInit {
   }
   getDelete(id:any){
     this.onDelete.emit(id)
+  }
+
+  callClose(){
+    this.isViewing = false
+    this.showCast = null
+  }
+  showCastImage(image:any){
+    this.showCast = image
+    this.isViewing = true
   }
 
 }

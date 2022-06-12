@@ -3,7 +3,7 @@
   </app-jumbotron>
   <div class="content">
     <div class="datatable">
-      <app-datatable [cols]="['Problem','Localisation','Status','Note','created at','Actions']" [data]="reportsTable"  (onView)="callView($event)" (onDelete)="callDelete($event)" (onEdit)="callEdit($event)" ></app-datatable>
+      <app-datatable [cols]="cols" [data]="reportsTable"  (onView)="callView($event)" (onDelete)="callDelete($event)" (onEdit)="callEdit($event)" ></app-datatable>
     </div>
   </div>
 <!-- View popup -->
