@@ -1,24 +1,24 @@
 package com.basmaonlinestore.authorisationserver;
 
-import com.basmaonlinestore.authorisationserver.models.Admin;
-import com.basmaonlinestore.authorisationserver.models.Role;
-import com.basmaonlinestore.authorisationserver.services.AdminService;
-import com.basmaonlinestore.authorisationserver.services.RoleService;
+import com.basmaonlinestore.authorisationserver.Seeders.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import javax.persistence.Basic;
-import java.sql.Timestamp;
 
 @SpringBootApplication
 public class MyWebApplication {
 
-    private PasswordEncoder passwordEncoder;
     public static void main(String[] args) {
         ApplicationContext context =  SpringApplication.run(MyWebApplication.class, args);
+        // Seeders
+        context.getBean(RoleSeeder.class).Seed();
+        context.getBean(SpecialisationSeeder.class).Seed(30);
+        context.getBean(AdminSeeder.class).Seed();
+        context.getBean(AdministrationSeeder.class).Seed(30);
+        context.getBean(ProblemSeeder.class).Seed(30);
+        context.getBean(ReportSeeder.class).Seed(30);
 
     }
 }
