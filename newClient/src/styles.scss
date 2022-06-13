@@ -42,14 +42,43 @@ form{
   .form-group{
     width: 100%;
     margin-bottom: 1.5rem;
+    > span{
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      display: block;
+      overflow: hidden;
+      font-size: .7rem;
+      background-color: rgba($darkGreen, 10%);
+      color: $darkGreen;
+      padding: .5rem;
+      border-radius: 8px;
+      &:empty{
+        display: none;
+      }
+    }
     .form-label{
       display: block;
       width: 100%;
       color: rgba($dark, 0.7);
       font-size: 1rem;
       margin-bottom: .7rem;
+      cursor: pointer;
       &::after{
         content: ":";
+      }
+      img{
+        background-color: rgba($dark,10%);
+        padding: 2px;
+        border-radius: 8px;
+        &:hover{
+          opacity: .5;
+        }
+      }
+      &.null{
+        &::after{
+          // opacity: 0;
+          content: "";
+        }
       }
       &:empty{
         &::after{

@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,6 +35,7 @@ public class ReportController {
 
     @PostMapping("")
     public ResponseEntity<Report> add(@RequestBody Report report){
+        report.setCreatedAt(new Timestamp(System.currentTimeMillis()));
         return ResponseEntity.ok().body(reportService.addOrUpdate(report));
     }
 

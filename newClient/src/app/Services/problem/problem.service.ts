@@ -1,3 +1,4 @@
+import { Problem } from './../../Objects/Problem';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -11,8 +12,8 @@ export class ProblemService {
   get():any{
     return this.http.get<any[]>(`/problem/`,{ observe: 'response' })
   }
-  add():any{
-    return this.http.post<any>(`/problem/`,{},{ observe: 'response' })
+  add(problem:Problem):any{
+    return this.http.post<any>(`/problem/`,problem,{ observe: 'response' })
   }
   update(problem:any):any{
     return this.http.put<any>(`/problem/`,problem,{ observe: 'response' })

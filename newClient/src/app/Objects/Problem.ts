@@ -6,4 +6,5 @@ export interface Problem {
   icon?: string | null;
   specialisation?: Specialisation | null;
   reports?: Report[] | null;
+  createdAt?: Date | null;
 }

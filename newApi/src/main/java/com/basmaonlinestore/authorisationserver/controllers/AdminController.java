@@ -7,6 +7,7 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @RestController
@@ -36,6 +37,7 @@ public class AdminController {
 
     @PostMapping("")
     public ResponseEntity<Admin> add(@RequestBody Admin admin){
+        admin.setCreatedAt(new Timestamp(System.currentTimeMillis()));
         return ResponseEntity.ok().body(adminService.addOrUpdate(admin));
     }
 

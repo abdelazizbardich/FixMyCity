@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.sql.Timestamp;
 import java.util.Map;
 
 @Controller
@@ -66,6 +68,7 @@ public class AuthController {
             user.setLogin(login);
             user.setPassword(new BCryptPasswordEncoder().encode(password));
             user.setRole(roleService.getByName("ROLE_USER"));
+            user.setCreatedAt(new Timestamp(System.currentTimeMillis()));
             userService.add(user);
             return ResponseEntity.status(HttpStatus.CREATED).body(Map.of("success","User created successfully"));
         }

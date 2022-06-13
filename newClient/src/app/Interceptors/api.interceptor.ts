@@ -26,14 +26,16 @@ export class APIInterceptor implements HttpInterceptor {
     }
     // Clone the request to add the new header and url
     return next.handle(httpRequest.clone({url:environment.api_base+httpRequest.clone().url,setHeaders:headers}))
-    // .pipe(
-    //   catchError( response => {
-    //     // Send to login page if unauthorized
-    //     if(response.status === 403) {
-    //       // this.router.navigateByUrl('/auth/login');
-    //     }
-    //     return throwError(response.error);
-    //   })
-      // );
+    .pipe(
+      catchError( response => {
+        // Send to login page if unauthorized
+        if(response.status === 403) {
+          window.localStorage.removeItem(`${environment.app_id}_token`);
+          window.localStorage.removeItem(`${environment.app_id}_user`);
+          this.router.navigateByUrl('/auth/login');
+        }
+        return throwError(response.error);
+      })
+      );
    }
 }

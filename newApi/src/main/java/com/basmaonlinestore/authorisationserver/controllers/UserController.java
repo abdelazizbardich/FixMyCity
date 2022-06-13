@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.security.RolesAllowed;
+import java.sql.Timestamp;
 import java.util.List;
 
 @RestController
@@ -39,6 +40,7 @@ public class UserController {
 
     @PostMapping("/")
     public User store(@RequestBody User user){
+        user.setCreatedAt(new Timestamp(System.currentTimeMillis()));
         return userService.add(user);
     }
 
