@@ -19,7 +19,7 @@
           </div>
           <div class="form-group">
             <label for="username" class="form-label">Username</label>
-            <input id="username" class="form-field" type="text" readonly class="form-field" readonly [value]="profile.username" placeholder="Your username...">
+            <input id="username" class="form-field" type="text" disabled class="form-field" readonly (keyup)="setValue('login',$event)" placeholder="Your username...">
           </div>
         </div>
         <div class="form-row">

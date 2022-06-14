@@ -1,0 +1,63 @@
+@import '../../../variables.scss';
+
+.form{
+  display: flex;
+  width: 100%;
+  .form-group{
+    width: 100%;
+    padding: 4px;
+    input{
+      width: 100%;
+      padding: 16px 32px;
+      color: $darkGreen;
+      font-size: 1rem;
+      background-color: rgba($green,.2);
+      border: 1px solid $green;
+      &::placeholder{
+        color: rgba($green,.5);
+      }
+    }
+    textarea{
+        width: 100%;
+        padding: 16px 32px;
+        color: $darkGreen;
+        font-size: 1rem;
+        background-color: rgba($green,.2);
+        border: 1px solid $green;
+        &::placeholder{
+          color: rgba($green,.5);
+        }
+    }
+    p{
+      font-size: .7rem;
+    }
+  }
+  .app-button-normal{
+    padding: 4px;
+    input{
+      width: 100%;
+      padding: 16px 32px;
+      color: $darkGreen;
+      font-size: 1rem;
+      background-color: rgba($green,.2);
+      border: 1px solid $green;
+      &::placeholder{
+        color: rgba($green,.5);
+      }
+    }
+    textarea{
+        width: 100%;
+        padding: 16px 32px;
+        color: $darkGreen;
+        font-size: 1rem;
+        background-color: rgba($green,.2);
+        border: 1px solid $green;
+        &::placeholder{
+          color: rgba($green,.5);
+        }
+    }
+    p{
+      font-size: .7rem;
+    }
+  }
+}

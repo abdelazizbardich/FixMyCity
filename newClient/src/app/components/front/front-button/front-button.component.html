@@ -1,0 +1,5 @@
+<div class="button-holder">
+  <a *ngIf="link && !target" [routerLink]="[link]" [target]="target" class="button-normal" [ngClass]="class">{{ title }}</a>
+  <a *ngIf="link && target" [href]="link" [target]="target" class="button-normal" [ngClass]="class">{{ title }}</a>
+<button *ngIf="!link" class="button-normal" type="submit" [ngClass]="class" [disabled]="disabled">{{ title }}</button>
+</div>

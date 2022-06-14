@@ -1,0 +1,24 @@
+<div class="holder">
+  <div class="grid" *ngIf="activeCards.length">
+    <div *ngFor="let card of activeCards" class="grid-item">
+      <div class="item">
+        <app-front-card [title]="card.title" [description]="card.desc" [map]="card.map" [img]="card.img" [link]="card.url" ></app-front-card>
+      </div>
+    </div>
+  </div>
+  <div class="empty" *ngIf="!activeCards.length">
+    There is no item to show :(
+  </div>
+  <div class="navigation">
+    <app-front-button *ngIf="activeCards.length > 0 && pageSize > 1 && pagination" [disabled]="(ActivePage == 1)" [class]="['small']" [title]="'Previous'" (click)="prevPage()"></app-front-button>
+    <span class="pages" *ngIf="activeCards.length > 0 && pageSize > 1 && pagination">
+      <div class="page" *ngFor="let page of pagesCount;let index = index">
+        <button [class]="'page-btn '+((ActivePage == index+1)?'active':'')" (click)="setPage(1+index)" >{{ index+1 }}</button>
+      </div>
+    </span>
+    <app-front-button *ngIf="activeCards.length > 0 && pageSize > 1 && pagination" [disabled]="(ActivePage == pagesCount.length)" [class]="['small']" [title]="'Next'" (click)="nextPage()"></app-front-button>
+    <div class="load-more" *ngIf="!(activeCards.length > 0 && pageSize > 1 && pagination) && canLoadMore">
+      <app-front-button *ngIf="cards.length > pageSize" [disabled]="(ActivePage == pagesCount.length)" [class]="['small','center']" [title]="'Load more'" (click)="loadMore()"></app-front-button>
+    </div>
+  </div>
+</div>

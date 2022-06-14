@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="thumbnail">
+    <img [src]="img" alt="" *ngIf="!map && img">
+    <img src="../../../assets/map.jpg" alt="" *ngIf="!map && !img">
+    <iframe *ngIf="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52942.47759297061!2d-6.892367995407536!3d33.969285049953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76b871f50c5c1%3A0x7ac946ed7408076b!2sRabat!5e0!3m2!1sen!2sma!4v1654211671505!5m2!1sen!2sma" width="100%" height="100%" style="border:0;" allowfullscreen="false" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  <div class="details">
+    <span class="title">{{ title }}</span>
+    <p class="desc" *ngIf="description">
+      {{ description.substr(0,100)+'...' }}
+    </p>
+    <app-front-button *ngIf="link" [target]="''" [link]="link" [class]="['full','rounded','large']" [title]="'More details'"></app-front-button>
+  </div>
+</div>

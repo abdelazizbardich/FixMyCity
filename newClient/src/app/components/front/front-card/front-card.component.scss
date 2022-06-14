@@ -1,0 +1,43 @@
+@import '../../../variables.scss';
+
+.card{
+  width: 100%;
+  background-color: rgba($green,.05);
+  overflow: hidden;
+  padding: 8px;
+  border-radius: 16px;
+  border: 2px solid $green;
+  box-shadow: rgba($darkGreen,.1) 0px 3px 8px;
+  margin: 8px;
+  margin-bottom: 16px;
+  .thumbnail{
+    iframe{
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 16px;
+      background-color: rgba($dark,.2);
+      margin-bottom: 16px;
+    }
+    img{
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 16px;
+      background-color: rgba($green,.2);
+      margin-bottom: 16px;
+      padding: 2px;
+    }
+  }
+  .details{
+    .title{
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+    .desc{
+      font-size: .9rem;
+      color: rgba($dark,.7);
+      margin-bottom: 24px;
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import { User } from 'src/app/Objects/User';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -14,7 +15,7 @@ export class UserService {
   add():any{
     return this.http.post<any>(`/user/`,{},{ observe: 'response' })
   }
-  update(user:any):any{
+  update(user:User):any{
     return this.http.put<any>(`/user/`,user,{ observe: 'response' })
   }
   delete(id:number):any{

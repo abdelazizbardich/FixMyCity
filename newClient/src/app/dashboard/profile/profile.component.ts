@@ -1,5 +1,6 @@
+import { UserService } from './../../Services/user/user.service';
 import { environment } from './../../../environments/environment';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Role } from 'src/app/Objects/Role';
 import { User } from 'src/app/Objects/User';
 
@@ -10,34 +11,37 @@ import { User } from 'src/app/Objects/User';
 })
 export class ProfileComponent implements OnInit {
 
-  profile:{firstName: String,lastName: String,email: String,username: String,password: String,passwordConfirmation: String} = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    username: '',
-    password: '',
-    passwordConfirmation: '',
+  profile:any =  {
+    firstName:"",
+    lastName:"",
+    email:"",
+    login:"",
   }
-  constructor() { }
+  constructor(private userService:UserService) { }
 
   ngOnInit(): void {
     const user = localStorage.getItem(environment.app_id+'_user')
     if(user != null && user != undefined){
       const {firstName,lastName,email} = JSON.parse(user).user;
-      this.profile.firstName = firstName;
-      this.profile.lastName = lastName;
-      this.profile.email = email;
-      this.profile.username = JSON.parse(user).username;
+      this.profile.firstName = firstName as String;
+      this.profile.lastName = lastName as String;
+      this.profile.email = email as String;
+      this.profile.login = JSON.parse(user).username as String;
     }
   }
 
-
   setValue(name:any,event:any){
-    // this.profile[name] = event.target.value as String
+    this.profile[name] = event.target.value as String
   }
 
   update($event:any){
     $event.preventDefault();
-    console.log(this.profile);
+    if(this.profile.password !== this.profile.password_conf){
+      alert("Passwords do not match")
+      return;
+    }
+    this.userService.update(this.profile).subscribe((res:any)=>{
+      console.log(res);
+    })
   }
 }

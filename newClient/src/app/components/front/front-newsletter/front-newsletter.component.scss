@@ -1,0 +1,17 @@
+@import '../../../variables.scss';
+.news-letter{
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba($green, .1);
+  form{
+    width: 90%;
+    margin: 0 auto;
+    max-width: 700px;
+  }
+}

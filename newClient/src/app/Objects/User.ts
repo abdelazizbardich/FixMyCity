@@ -6,6 +6,7 @@ export interface User{
     email?: String | null;
     login?: String | null;
     password?: String | null;
+    password_conf?: String | null;
     rememberToken?: String | null;
     isActive?: boolean | null;
     role?: Role | null;

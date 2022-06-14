@@ -1,0 +1,20 @@
+<div class="header">
+  <header>
+    <div class="brand">
+      <a href="#">
+        <!-- <img src="" alt=""> -->
+        <span>Fix My City</span>
+      </a>
+    </div>
+    <div class="nav">
+      <ul>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }"><a [routerLink]="['']">Home</a></li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }"><a [routerLink]="['contact']">Contact</a></li>
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }"><a [routerLink]="['projects']">Projects</a></li>
+      </ul>
+    </div>
+    <div class="actions">
+      <app-front-button [link]="'/auth/login'" [target]="''" [class]="['small']" [title]="'Login'"></app-front-button>
+    </div>
+  </header>
+</div>

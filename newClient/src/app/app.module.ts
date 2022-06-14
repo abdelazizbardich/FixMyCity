@@ -22,7 +22,16 @@ import { ProblemsComponent } from './dashboard/problems/problems.component';
 import { SettingsComponent } from './dashboard/settings/settings.component';
 import { SafePipe } from './Pipes/safe.pipe';
 import { PopupComponent } from './components/dashboard/popup/popup.component';
-
+import { FormsModule } from '@angular/forms';
+import { FrontHeaderComponent } from './components/front/front-header/front-header.component';
+import { FrontButtonComponent } from './components/front/front-button/front-button.component';
+import { ImageHolderComponent } from './components/front/image-holder/image-holder.component';
+import { FrontTitleComponent } from './components/front/front-title/front-title.component';
+import { FrontCardComponent } from './components/front/front-card/front-card.component';
+import { FrontGelleryComponent } from './components/front/front-gellery/front-gellery.component';
+import { FrontFooterComponent } from './components/front/front-footer/front-footer.component';
+import { FrontNewsletterComponent } from './components/front/front-newsletter/front-newsletter.component';
+import { FrontFormControlComponent } from './components/front/front-form-control/front-form-control.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,13 +51,23 @@ import { PopupComponent } from './components/dashboard/popup/popup.component';
     ProblemsComponent,
     SettingsComponent,
     SafePipe,
-    PopupComponent
+    PopupComponent,
+    FrontHeaderComponent,
+    FrontButtonComponent,
+    ImageHolderComponent,
+    FrontTitleComponent,
+    FrontCardComponent,
+    FrontGelleryComponent,
+    FrontFooterComponent,
+    FrontNewsletterComponent,
+    FrontFormControlComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: APIInterceptor, multi: true }
