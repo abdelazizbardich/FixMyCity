@@ -24,7 +24,7 @@ public class Report implements Serializable {
     private String lan;
     @Column(name = "status")
     private Boolean status;
-    @Column(name = "note")
+    @Column(name = "note",length = 3000)
     private String note;
     @ManyToOne
     private Problem problem;

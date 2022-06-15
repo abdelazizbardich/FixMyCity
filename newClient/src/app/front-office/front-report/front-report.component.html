@@ -1,0 +1,11 @@
+<div class="project">
+  <div class="image" [style]="'background-image: url('+project.img+')'" ></div>
+  <div class="map">
+    <iframe [src]="'https://www.google.com/maps/embed/v1/place?key=AIzaSyDn_s2NDJkI4Oz6YpULrEcGaqUJnRzV9tU&q='+project.map.lat+', '+project.map.lan+'&zoom=22' | safe"  width="100%" height="100%" style="border:0;" allowfullscreen="false" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  <div class="details" draggable="true" #details>
+    <span class="title">{{ project.title }}</span>
+    <p class="desc" *ngIf="project.desc">
+      {{ project.desc }}
+  </div>
+  </div>

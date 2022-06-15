@@ -8,7 +8,10 @@ export class ReportsService {
 
   constructor(private http:HttpClient) { }
 
-  get(){
+  getReports(){
     return this.http.get<any[]>('/public/reports',{ observe: 'response' })
+  }
+  getReport(id:number){
+    return this.http.get<any[]>(`/public/reports/`+id,{ observe: 'response' })
   }
 }

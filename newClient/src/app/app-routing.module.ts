@@ -1,3 +1,4 @@
+import { FrontReportComponent } from './front-office/front-report/front-report.component';
 import { FrontReportsComponent } from './front-office/front-reports/front-reports.component';
 import { FrontContactComponent } from './front-office/front-contact/front-contact.component';
 import { AdminGuard } from './guards/role/admin.guard';
@@ -22,6 +23,7 @@ const routes: Routes = [
     {path:"", component: FrontHomeComponent},
     {path:"contact",component:FrontContactComponent},
     {path:"reports",component:FrontReportsComponent},
+    {path:"report/:id",component:FrontReportComponent},
   ]},
   {
     path:"auth",component:AuthComponent, children:[

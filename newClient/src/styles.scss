@@ -140,3 +140,13 @@ button{
   border: none;
   background-color: $green;
 }
+
+
+section{
+  width: 90%;
+  margin: auto;
+  > * {
+    min-width: 350px;
+    margin: auto;
+  }
+}

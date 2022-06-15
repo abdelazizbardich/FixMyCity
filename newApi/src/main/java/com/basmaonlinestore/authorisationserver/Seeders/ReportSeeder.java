@@ -28,8 +28,8 @@ public class ReportSeeder {
             Report report = new Report();
             report.setLat("34.032109");
             report.setLan("-6.806705");
-            report.setNote("Somple note "+i);
-            report.setPhoto("https://store-images.s-microsoft.com/image/apps.14591.9a19b1cb-7ffc-4b32-bf97-25ef75ec69a3.753de052-0f07-4e5e-a20d-e4d5688136af.e2247862-7caa-44e8-8915-ca934ab9b663.png");
+            report.setNote("It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).");
+            report.setPhoto("https://api.lorem.space/image/house?w=1000&h=1000");
             List<Problem> problems = problemService.getAll();
             int rand = new Random().nextInt(problems.size());
             report.setProblem(problems.get(rand));

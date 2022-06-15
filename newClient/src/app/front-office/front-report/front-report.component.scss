@@ -1,0 +1,56 @@
+@import "../../variables";
+.project{
+  background-color: rgba($green,.5);
+  margin: 0;
+  height: calc(100vh - 50px);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  .image{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .map{
+    width: 100%;
+    height: 100%;
+    iframe{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .details{
+    cursor: grab;
+    transition: 0s;
+    background-color: $white;
+    width: 70%;
+    max-width: 700px;
+    min-width: 200px;
+    min-height: 100px;
+    padding: 1rem 2rem;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 8px;
+    box-shadow: rgba($green,.2) 0px 2rem 3rem;
+    border: 1px solid rgba($green,.2);
+    .title{
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: $darkGreen;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .description{
+      font-size: 1.2rem;
+      color: $dark;
+      margin-bottom: 1rem;
+      display: block;
+    }
+  }
+}

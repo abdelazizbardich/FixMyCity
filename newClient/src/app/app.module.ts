@@ -35,6 +35,7 @@ import { FrontFormControlComponent } from './components/front/front-form-control
 import { FrontContactComponent } from './front-office/front-contact/front-contact.component';
 import { FrontReportsComponent } from './front-office/front-reports/front-reports.component';
 import { FrontContactFormComponent } from './components/front/front-contact-form/front-contact-form.component';
+import { FrontReportComponent } from './front-office/front-report/front-report.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +67,8 @@ import { FrontContactFormComponent } from './components/front/front-contact-form
     FrontFormControlComponent,
     FrontContactComponent,
     FrontReportsComponent,
-    FrontContactFormComponent
+    FrontContactFormComponent,
+    FrontReportComponent
   ],
   imports: [
     BrowserModule,

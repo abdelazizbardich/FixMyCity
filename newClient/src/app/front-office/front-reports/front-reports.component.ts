@@ -14,9 +14,15 @@ export class FrontReportsComponent implements OnInit {
   projects:any = [];
 
   ngOnInit(): void {
-    this.reportsService.get().subscribe((res:any)=>{
+    this.reportsService.getReports().subscribe((res:any)=>{
         this.projects = res.body.map((report:Report)=>{
-          return {title:report.problem?.name,desc:report.note,map:{lat:report.lat,lan:report.lan},url:"/project/"+report.id}
+          return {
+            title:report.problem?.name,
+            desc:report.note,
+            img:report.problem?.icon,
+            map:{lat:report.lat,lan:report.lan},
+            url:"/report/"+report.id
+          }
         })
       }
     )

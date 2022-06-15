@@ -7,10 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,8 +21,13 @@ public class PublicController {
     private ReportService reportService;
 
     @GetMapping("/reports")
-    public ResponseEntity<java.util.List<Report>> get(){
+    public ResponseEntity<java.util.List<Report>> getReports(){
         List<Report> reports = reportService.getAll();
         return ResponseEntity.ok().body(reports);
+    }
+    @GetMapping("/reports/{id}")
+    public ResponseEntity<Report> getReport(@PathVariable(name = "id") Long id){
+        Report report = reportService.findById(id).get();
+        return ResponseEntity.ok().body(report);
     }
 }
