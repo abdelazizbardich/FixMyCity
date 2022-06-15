@@ -178,6 +178,14 @@
               cursor: pointer;
             }
           }
+          .boolean{
+            .true{
+              color: $green;
+            }
+            .false{
+              color: $red;
+            }
+          }
         }
       }
     }

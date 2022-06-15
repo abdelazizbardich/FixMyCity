@@ -55,11 +55,13 @@ export class HomeComponent implements OnInit {
 
   setTableData(){
     this.reportsTable = this.reports.map(report => {
+      // const status  = report.status ? 'Solved' : 'Pending';
+
       return [
         {key:'problem',val:report.problem?.name}, // problem
         {key:'map',val:[report.lat,report.lan]},  // localisation
-        {key:'status',val:report.status}, // status
-        {key:'note',val:report.note},  // note
+        {key:'boolean',val:report.status}, // status
+        {key:'note',val:report.note?.substring(0,70)+"..."},  // note
         {key:'created_at',val:moment(report.createdAt).format('YYYY-MM-DD hh:mm:ss')}, // created_at
         {key:'actions',actions:[  // actions
           {action:"view",id:report.id}

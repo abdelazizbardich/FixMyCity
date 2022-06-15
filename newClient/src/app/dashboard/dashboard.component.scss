@@ -50,7 +50,7 @@
     height: calc(100vh - 70px);
     aside{
       padding-top: 3rem;
-      width: 300px;
+      width: 250px;
       height: 100%;
       display: flex;
       justify-content: space-between;
@@ -98,7 +98,7 @@
     }
     main{
       height: 100%;
-      width: calc(100% - 300px);
+      width: calc(100% - 250px);
       overflow-y: auto;
       padding-top: 3rem;
       padding-right: 3rem;
