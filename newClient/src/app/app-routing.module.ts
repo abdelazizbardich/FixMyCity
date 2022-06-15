@@ -36,7 +36,7 @@ const routes: Routes = [
     {path:"reports",component:ReportsComponent},
     {path:"administrations",component:AdministrationsComponent,canActivate:[AdminGuard]},
     {path:"problems",component:ProblemsComponent,canActivate:[AdminGuard]},
-    {path:"settings",component:SettingsComponent,canActivate:[AdminGuard]},
+    // {path:"settings",component:SettingsComponent,canActivate:[AdminGuard]},
     {path:"specialisations",component:SpecialisationsComponent,canActivate:[AdminGuard]},
     {path:"specialisation/:id",component:SpecialisationsComponent,canActivate:[AdminGuard]},
     // {path:"photos",component:PhotosComponent},

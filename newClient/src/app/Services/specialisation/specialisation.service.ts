@@ -12,8 +12,8 @@ export class SpecialisationService {
   get():any{
     return this.http.get<HttpResponse<Specialisation[]>>(`/specialisation/`,{ observe: 'response' })
   }
-  add():any{
-    return this.http.post<HttpResponse<Specialisation>>(`/specialisation/`,{},{ observe: 'response' })
+  add(specialisation:Specialisation):any{
+    return this.http.post<HttpResponse<Specialisation>>(`/specialisation/`,specialisation,{ observe: 'response' })
   }
   update(specialisation:any):any{
     return this.http.put<HttpResponse<Specialisation>>(`/specialisation/`,specialisation,{ observe: 'response' })
