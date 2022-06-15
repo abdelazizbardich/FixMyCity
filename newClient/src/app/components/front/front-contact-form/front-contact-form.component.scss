@@ -1,0 +1,26 @@
+form{
+  .form-group{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: .5rem;
+    .left{
+      width: 100%;
+      app-inline-form-field{
+        width: 100%;
+      }
+    }
+    .right{
+      width: 100%;
+      app-inline-form-field{
+        width: 100%;
+      }
+    }
+    .full{
+      width: 100%;
+      app-inline-form-field{
+        width: 100%;
+      }
+    }
+  }
+}

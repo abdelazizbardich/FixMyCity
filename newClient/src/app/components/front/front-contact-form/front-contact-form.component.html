@@ -1,0 +1,25 @@
+<form action="" (submit)="send($event)">
+  <div class="form-group">
+    <div class="left">
+      <app-front-form-control [type]="'text'" (value)="setValue('name',$event)" [name]="'name'" [button]="false" [placeholder]="'Your full name...'" [hint]="''"></app-front-form-control>
+    </div>
+    <div class="right">
+      <app-front-form-control (value)="setValue('email',$event)" [name]="'email'" [type]="'email'" [button]="false" [placeholder]="'Your email address...'" [hint]="'Will be used to contact you back'"></app-front-form-control>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="full">
+      <app-front-form-control [type]="'text'" (value)="setValue('subject',$event)" [name]="'subject'" [button]="false" [placeholder]="'Your message subject...'" [hint]="''"></app-front-form-control>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="full">
+      <app-front-form-control (value)="setValue('message',$event)" [name]="'message'" [type]="'textarea'" [button]="false" [placeholder]="'Your message body...'" [hint]="''"></app-front-form-control>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="full">
+      <app-front-button [class]="['full']" [title]="'Send'" ></app-front-button>
+    </div>
+  </div>
+</form>

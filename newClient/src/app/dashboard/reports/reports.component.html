@@ -51,8 +51,8 @@
       <div class="form-group">
         <label class="form-label" for="">Status</label>
         <select class="form-field" name="" id="" (change)="setStatus($event)" [value]="activeReport.status">
-          <option value="0" [selected]="!activeReport.status">In active</option>
-          <option value="1" [selected]="activeReport.status">Active</option>
+          <option value="0" [selected]="!activeReport.status">New report</option>
+          <option value="1" [selected]="activeReport.status">Seolved</option>
         </select>
       </div>
     </div>

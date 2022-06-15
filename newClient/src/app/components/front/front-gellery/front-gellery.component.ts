@@ -25,6 +25,10 @@ export class FrontGelleryComponent implements OnInit {
     }
   }
 
+  ngOnChanges(cards: any) {
+    this.ngOnInit()
+  }
+
 
   paginate(page:number):void {
     this.activeCards = this.cards.slice((page - 1) * this.pageSize, page * this.pageSize);

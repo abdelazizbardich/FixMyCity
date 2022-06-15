@@ -2,8 +2,17 @@
   <section>
     <div class="details">
       <app-front-title [title]="['Fix','My City']" [slug]="'A modern way to urbenize your city'"></app-front-title>
-      <p>C'est un fait établi depuis longtemps qu'un lecteur sera distrait par le contenu lisible d'une page en regardant sa mise en page. L'intérêt d'utiliser le Lorem Ipsum est qu'il présente une distribution plus ou moins normale des lettres, par opposition à l'utilisation de "Contenu ici, contenu ici", ce qui lui donne l'apparence d'un anglais lisible. De nombreux logiciels de publication assistée par ordinateur et éditeurs de pages Web utilisent désormais le Lorem Ipsum comme modèle de texte par défaut, et une recherche sur "lorem ipsum" permet de découvrir de nombreux sites Web qui en sont encore à leurs débuts.</p>
-      <app-front-button [class]="['small']" [link]="'/projects'" [title]="'Our projects'"></app-front-button>
+      <p>
+        <strong>FixMyCity</strong> is a map based website and app that helps people in the Morocco inform their local authority of problems needing their attention, such as potholes, broken streetlamps, etc. It is the Moroccain instance of FixMyStreet. Reports are also published on the site.</p>
+        How to report a problem
+        <ul>
+          <li>Enter a nearby UK postcode, or street name and area</li>
+          <li>Locate the problem on a map of the area</li>
+          <li>Enter details of the problem</li>
+          <li>We send it to the council on your behalf</li>
+        </ul>
+        <br>
+      <app-front-button [class]="['small']" [link]="'/reports'" [title]="'Resent reports'"></app-front-button>
     </div>
     <div>
       <app-image-holder [src]="'https://www.pngkey.com/png/full/291-2917528_designed-by-freepik-transparent-smart-city.png'"></app-image-holder>
@@ -75,6 +84,6 @@
   </section>
 </div>
 <div>
-    <app-front-title [title]="['Our ','Projects']" [class]="['center']" [slug]="'More than 17 project on ground'"></app-front-title>
+    <app-front-title [title]="['Resent ','Reports']" [class]="['center']" [slug]="'More than '+projects.length+' report until now'"></app-front-title>
     <app-front-gellery [cards]="projects" [pageSize]="6" [pagination]="true"></app-front-gellery>
 </div>

@@ -32,6 +32,9 @@ import { FrontGelleryComponent } from './components/front/front-gellery/front-ge
 import { FrontFooterComponent } from './components/front/front-footer/front-footer.component';
 import { FrontNewsletterComponent } from './components/front/front-newsletter/front-newsletter.component';
 import { FrontFormControlComponent } from './components/front/front-form-control/front-form-control.component';
+import { FrontContactComponent } from './front-office/front-contact/front-contact.component';
+import { FrontReportsComponent } from './front-office/front-reports/front-reports.component';
+import { FrontContactFormComponent } from './components/front/front-contact-form/front-contact-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +63,10 @@ import { FrontFormControlComponent } from './components/front/front-form-control
     FrontGelleryComponent,
     FrontFooterComponent,
     FrontNewsletterComponent,
-    FrontFormControlComponent
+    FrontFormControlComponent,
+    FrontContactComponent,
+    FrontReportsComponent,
+    FrontContactFormComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,5 @@
+import { FrontReportsComponent } from './front-office/front-reports/front-reports.component';
+import { FrontContactComponent } from './front-office/front-contact/front-contact.component';
 import { AdminGuard } from './guards/role/admin.guard';
 import { ProblemsComponent } from './dashboard/problems/problems.component';
 import { SpecialisationsComponent } from './dashboard/specialisations/specialisations.component';
@@ -17,7 +19,9 @@ import { AuthGuard } from './guards/auth/auth.guard';
 import { ProfileComponent } from './dashboard/profile/profile.component';
 const routes: Routes = [
   {path:"", component: FrontOfficeComponent, children:[
-    {path:"", component: FrontHomeComponent}
+    {path:"", component: FrontHomeComponent},
+    {path:"contact",component:FrontContactComponent},
+    {path:"reports",component:FrontReportsComponent},
   ]},
   {
     path:"auth",component:AuthComponent, children:[

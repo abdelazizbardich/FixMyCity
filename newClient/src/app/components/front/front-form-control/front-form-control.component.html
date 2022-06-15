@@ -1,7 +1,7 @@
 <div class="form">
   <div class="form-group">
     <input [name]="name" (change)="setValue($event.target)" *ngIf="type != 'textarea'" [type]="type" [placeholder]="placeholder">
-    <textarea (change)="setValue($event.target)" [name]="name" *ngIf="type == 'textarea'" [placeholder]="placeholder"></textarea>
+    <textarea (change)="setValue($event.target)" [name]="name" *ngIf="type == 'textarea'" rows="7" [placeholder]="placeholder"></textarea>
     <p>{{ hint }}</p>
   </div>
   <div class="app-button-normal" *ngIf="button">

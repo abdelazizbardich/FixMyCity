@@ -21,7 +21,7 @@ export class APIInterceptor implements HttpInterceptor {
       headers = {
         Authorization : `Bearer ${token}`
       };
-    }else if (httpRequest.clone().url.split('/')[1] !== 'auth'){
+    }else if (httpRequest.clone().url.split('/')[1] !== 'auth' && httpRequest.clone().url.split('/')[1] !== 'public'){
       this.router.navigateByUrl('/auth/login')
     }
     // Clone the request to add the new header and url

@@ -1,0 +1,17 @@
+.contact{
+  padding: 5rem .5rem;
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  section{
+    width: 50%;
+    min-width: 300px;
+    .content{
+      margin: 64px auto;
+      max-width: 1000px;
+
+    }
+
+  }
+}
