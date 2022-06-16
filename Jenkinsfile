@@ -2,20 +2,24 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Building Api') {
             steps {
-                sh "cd ./api && ls"
-                echo 'Building..'
+                echo 'Building API..'
+                sh "cd ./api && mvn clean && mvn package"
+                sh "cd ../"
             }
         }
-        stage('Test') {
+        stage('Building client') {
             steps {
-                echo 'Testing..'
+                echo "Building Client..."
+                sh "cd ./client && npm install && npm build"
+                sh "cd ../"
             }
         }
-        stage('Deploy') {
+        stage('Deploy Docker') {
             steps {
-                echo 'Deploying....'
+                echo 'Deploying docker compose....'
+                sh "dcoker-compose up -d"
             }
         }
     }
