@@ -1,21 +1,33 @@
 services:
-  api:
-    image: fix_my_city
+  fmc_client:
+    image: fix_my_city_client
     build:
-      context: .
+      context: ./client
       dockerfile: Dockerfile
-    container_name: fix_my_city
+    container_name: fix_my_city_client
+    ports:
+      - "80:80"
+    depends_on:
+      - fmc_api
+  fmc_api:
+    image: fix_my_city_api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: fix_my_city_api
     ports:
       - 8080:8080
     depends_on:
-      - database
-  database:
+      - fmc_database
+  fmc_database:
     image: mysql:8.0.28
-    container_name: database
+    container_name: fix_my_city_database
     ports:
       - 3300:3306
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: username
       MYSQL_PASSWORD: password
-      MYSQL_DATABASE: fix_my_city
+      MYSQL_DATABASE: fix_my_city_db
+    volumes:
+      - ./data/mysql:/var/lib/mysql

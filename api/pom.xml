@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>BasmaOnlineStore</artifactId>
+    <artifactId>Fix_my_City</artifactId>
     <packaging>jar</packaging>
-    <name>BasmaOnlineStore authorisation server</name>
+    <name>Fix my City</name>
     <version>1.0</version>
     <parent>
         <groupId>org.springframework.boot</groupId>
