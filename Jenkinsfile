@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                cd ./api && ls && \
                 echo 'Building..'
             }
         }
