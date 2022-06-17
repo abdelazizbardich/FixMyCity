@@ -7,7 +7,7 @@ pipeline{
         VERSION = "${env.BUILD_ID}"
     }
     stages {
-        stage('Testing'){
+        stage('Tetsing') {
             steps {
                 echo '=====> Testing api...'
                 echo '=====>    API Have no test yet...'
@@ -15,7 +15,7 @@ pipeline{
                 sh 'cd ./client && npm install && npm test --watch=false'
             }
         }
-        stage('Build Docker images'){
+        stage('Building Docker images'){
             steps {
                 // Build docker image For API
                     echo '=====> Building Docker image from API...'
@@ -25,7 +25,7 @@ pipeline{
                     sh "cd ./client && docker build -t ${PROJECT_NAME}_client:${VERSION} ."
             }
         }
-        stage('Deploy'){
+        stage('Pushing to Docker Hub'){
             steps {
                 // Deploy docker image For API to docker hub
                     echo '=====> Pushing docker image to registry....'
@@ -40,7 +40,7 @@ pipeline{
 
             }
         }
-        stage('Deploy to Production'){
+        stage('Deploying to Production'){
             steps {
                 // Running docker compose for API & Client Containers
                 echo '=====> Running docker compose for API & Client Containers...'
