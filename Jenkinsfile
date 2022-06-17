@@ -10,7 +10,9 @@ pipeline{
         stage('Testing'){
             steps {
                 echo '=====> Testing api...'
+                echo '=====>    API Have no test yet...'
                 echo '=====> Testing client...'
+                sh 'cd client && npm test --watch=false'
             }
         }
         stage('Build Docker images'){
