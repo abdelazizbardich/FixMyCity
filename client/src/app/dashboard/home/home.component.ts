@@ -60,7 +60,7 @@ export class HomeComponent implements OnInit {
       return [
         {key:'problem',val:report.problem?.name}, // problem
         {key:'map',val:[report.lat,report.lan]},  // localisation
-        {key:'boolean',val:report.status}, // status
+        {key:'boolean',val:report.status,labels:["Solved",'Pending']}, // status
         {key:'note',val:report.note?.substring(0,70)+"..."},  // note
         {key:'created_at',val:moment(report.createdAt).format('YYYY-MM-DD hh:mm:ss')}, // created_at
         {key:'actions',actions:[  // actions

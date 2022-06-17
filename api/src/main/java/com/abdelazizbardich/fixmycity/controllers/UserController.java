@@ -3,16 +3,16 @@ package com.abdelazizbardich.fixmycity.controllers;
 import com.abdelazizbardich.fixmycity.services.UserService;
 import com.abdelazizbardich.fixmycity.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.security.RolesAllowed;
 import java.sql.Timestamp;
 import java.util.List;
 
 @RestController
 @RequestMapping("/user")
 @CrossOrigin(origins = "*")
-// @RolesAllowed("ROLE_ADMIN")
+@Secured({"ROLE_ADMIN","ROLE_ADMINISTRATION"})
 public class UserController {
 
     private UserService userService;

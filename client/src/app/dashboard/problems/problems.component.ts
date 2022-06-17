@@ -5,6 +5,7 @@ import { ProblemService } from './../../Services/problem/problem.service';
 import { Problem } from './../../Objects/Problem';
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import { AccessGuardService } from 'src/app/Services/access-guard/access-guard.service';
 
 @Component({
   selector: 'app-problems',
@@ -26,7 +27,11 @@ export class ProblemsComponent implements OnInit {
   activeProblem:Problem = {}
 
   formData:any = {};
-  constructor(private problemService:ProblemService,private specialisationService:SpecialisationService) { }
+  constructor(
+    private problemService:ProblemService,
+    private specialisationService:SpecialisationService,
+    private accessGuardService:AccessGuardService
+    ) { }
 
   ngOnInit(): void {
     this.problemService.get().subscribe((problems:any) => {
@@ -36,12 +41,13 @@ export class ProblemsComponent implements OnInit {
       })
       this.setTableData()
     })
-    this.specialisationService.get().subscribe((specialisations:any) => {
-      this.specialisations = specialisations.body.map((specialisation:any) => {
-        return specialisation as Specialisation
-      }
-      )
-    })
+    if(this.accessGuardService.isAdmin()){
+      this.specialisationService.get().subscribe((specialisations:any) => {
+        this.specialisations = specialisations.body.map((specialisation:any) => {
+          return specialisation as Specialisation
+        })
+      })
+    }
   }
 
   setTableData(){
@@ -54,8 +60,8 @@ export class ProblemsComponent implements OnInit {
         {key:'created_at',val:moment(problem.createdAt).format('YYYY-MM-DD HH:mm:ss')},
           {key:'actions',actions:[
             {action:"view",id:problem.id},
-            {action:"edit",id:problem.id},
-            {action:"delete",id:problem.id}
+            (this.accessGuardService.isAdmin()) ?{action:"edit",id:problem.id}:null,
+            (this.accessGuardService.isAdmin()) ?{action:"delete",id:problem.id}:null
           ]}
       ]
     })
@@ -67,10 +73,12 @@ export class ProblemsComponent implements OnInit {
   }
 
   callCreate(){
+    if(this.accessGuardService.isAdmin()) return;
     this.isCreating = true;
   }
 
   callEdit(id:any){
+    if(this.accessGuardService.isAdmin()) return;
     this.isEditing = true;
     this.activeProblem = this.problems.find(problem => problem.id === id) as Problem;
     this.formData = {
@@ -83,6 +91,7 @@ export class ProblemsComponent implements OnInit {
   }
 
   callDelete(id:any){
+    if(this.accessGuardService.isAdmin()) return;
     this.isDeletting = true;
     this.activeProblem.id = id as number;
   }
@@ -96,10 +105,12 @@ export class ProblemsComponent implements OnInit {
   }
 
   setValue(key:any,val:any){
+    if(this.accessGuardService.isAdmin()) return;
     this.formData[key] = val.target.value;
   }
 
   add(){
+    if(this.accessGuardService.isAdmin()) return;
     const problem = {
       name:this.formData['name'],
       icon:this.formData['icon'],
@@ -116,6 +127,7 @@ export class ProblemsComponent implements OnInit {
   }
 
   edit(){
+    if(this.accessGuardService.isAdmin()) return;
     const problem = {
       id:this.activeProblem.id,
       name:this.formData['name'],
@@ -132,6 +144,7 @@ export class ProblemsComponent implements OnInit {
   }
 
   delete(){
+    if(this.accessGuardService.isAdmin()) return;
     this.problemService.delete(this.activeProblem.id as number).subscribe(()=>{
       this.problems = this.problems.filter(problem => problem.id !== this.activeProblem.id)
       this.setTableData()

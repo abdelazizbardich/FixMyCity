@@ -22,8 +22,6 @@ public class Specialisation implements Serializable {
     private String name;
     @Column(name = "icon")
     private String icon;
-    @OneToMany
-    private List<Problem> problems;
     @Column(name = "created_at")
     private Timestamp createdAt;
 

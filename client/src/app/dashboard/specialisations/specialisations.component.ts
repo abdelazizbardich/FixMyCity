@@ -11,7 +11,7 @@ import * as moment from 'moment';
 })
 export class SpecialisationsComponent implements OnInit {
 
-  cols:String[] = ['','Name','Problem','created at','Actions'];
+  cols:String[] = ['','Name','created at','Actions'];
   specialisations:any[] = [];
 
   specialisationsTable:any[] = [];
@@ -31,12 +31,10 @@ export class SpecialisationsComponent implements OnInit {
         return [
           {key:'image',val:sp.name,path:sp.icon}, // image
           {key:'name',val:sp.name}, // name
-          {key:'problem',val:sp.problem?.name},  // problem
           {key:'created_at',val:moment(sp.createdAt).format('YYYY-MM-DD HH:mm:ss')}, // created_at
           {key:'actions',actions:[  // actions
             {action:"view",id:sp.id},
-            {action:"edit",id:sp.id},
-            // {action:"delete",id:sp.id}
+            {action:"edit",id:sp.id}
           ]}
         ]
       })

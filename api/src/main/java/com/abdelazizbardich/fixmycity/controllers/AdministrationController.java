@@ -14,7 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/administration")
 @CrossOrigin(origins = "*")
-@Secured("ROLE_ADMIN")
+@Secured({"ROLE_ADMIN"})
 public class AdministrationController {
 
     private AdministrationService administrationService;

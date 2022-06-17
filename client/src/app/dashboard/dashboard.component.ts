@@ -4,6 +4,7 @@ import { AdminService } from './../Services/admin/admin.service';
 import { Component, OnInit } from '@angular/core';
 import { Report } from '../Objects/Report';
 import { environment } from 'src/environments/environment';
+import { AccessGuardService } from '../Services/access-guard/access-guard.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -12,7 +13,9 @@ import { environment } from 'src/environments/environment';
 export class DashboardComponent implements OnInit {
 
   thisYear:number = new Date().getFullYear();
-  constructor(private adminService:AdminService,private router:Router) { }
+  isAdmin:boolean = false;
+  isAdministration:boolean = false;
+  constructor(private adminService:AdminService,private router:Router,private accessGuardService:AccessGuardService) { }
   user:User = {
     userId: 0,
     firstName: '',
@@ -26,6 +29,8 @@ export class DashboardComponent implements OnInit {
     createdAt: undefined
   };
   ngOnInit(): void {
+    this.isAdmin = this.accessGuardService.isAdmin();
+    this.isAdministration = this.accessGuardService.isAdministration();
     const user = window.localStorage.getItem(`${environment.app_id}_user`);
     if(user != null && user != undefined){
       this.user = JSON.parse(user).user;

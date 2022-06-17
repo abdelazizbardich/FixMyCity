@@ -13,7 +13,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/report")
 @CrossOrigin(origins = "*")
-// @Secured({"ROLE_ADMIN","ROLE_ADMINISTRATION","ROLE_USER"})
+ @Secured({"ROLE_ADMIN","ROLE_ADMINISTRATION","ROLE_USER"})
 public class ReportController {
 
     private ReportService reportService;
@@ -40,11 +40,13 @@ public class ReportController {
     }
 
     @PutMapping("")
+    @Secured({"ROLE_ADMIN","ROLE_ADMINISTRATION"})
     public ResponseEntity<Report> update(@RequestBody Report report){
         return ResponseEntity.ok().body(reportService.addOrUpdate(report));
     }
 
     @DeleteMapping("/{id}")
+    @Secured({"ROLE_ADMIN","ROLE_ADMINISTRATION"})
     public ResponseEntity<Boolean> delete(@PathVariable(name = "id") Long id){
         return ResponseEntity.ok().body(reportService.delete(id));
     }

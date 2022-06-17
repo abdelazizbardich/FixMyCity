@@ -13,7 +13,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/problem")
 @CrossOrigin(origins = "*")
-// @Secured({"ROLE_ADMIN","ROLE_ADMINISTRATION"})
+ @Secured({"ROLE_ADMIN","ROLE_ADMINISTRATION","ROLE_USER"})
 public class ProblemController {
 
     private ProblemService problemService;
@@ -34,17 +34,20 @@ public class ProblemController {
     }
 
     @PostMapping("")
+    @Secured({"ROLE_ADMIN","ROLE_ADMINISTRATION"})
     public ResponseEntity<Problem> add(@RequestBody Problem problem){
         problem.setCreatedAt(new Timestamp(System.currentTimeMillis()));
         return ResponseEntity.ok().body(problemService.addOrUpdate(problem));
     }
 
     @PutMapping("")
+    @Secured({"ROLE_ADMIN","ROLE_ADMINISTRATION"})
     public ResponseEntity<Problem> update(@RequestBody Problem problem){
         return ResponseEntity.ok().body(problemService.addOrUpdate(problem));
     }
 
     @DeleteMapping("/{id}")
+    @Secured({"ROLE_ADMIN","ROLE_ADMINISTRATION"})
     public ResponseEntity<Boolean> delete(@PathVariable(name = "id") Long id){
         return ResponseEntity.ok().body(problemService.delete(id));
     }

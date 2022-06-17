@@ -30,7 +30,14 @@ export class LoginComponent implements OnInit {
     this.auth.login(this.login,this.password).subscribe((res:any,err:any) =>{
       window.localStorage.setItem(`${environment.app_id}_token`,res.body.token);
       window.localStorage.setItem(`${environment.app_id}_user`,JSON.stringify(res.body.user));
-      this.router.navigateByUrl('/dashboard');
+      if(res.body.user.authorities.find((x:any) => x.authority == "ROLE_ADMIN")){
+        this.router.navigateByUrl('/dashboard');
+      }
+      else if(res.body.user.authorities.find((x:any) => x.authority == "ROLE_ADMINISTRATION")){
+        this.router.navigateByUrl('/dashboard/reports');
+      }else{
+        alert("You are not authorized to access this application");
+      }
     })
   }
 

@@ -30,6 +30,7 @@ export class APIInterceptor implements HttpInterceptor {
       catchError( response => {
         // Send to login page if unauthorized
         if(response.status === 403) {
+          alert('You are not authorized to requiest this API endpoint');
           window.localStorage.removeItem(`${environment.app_id}_token`);
           window.localStorage.removeItem(`${environment.app_id}_user`);
           this.router.navigateByUrl('/auth/login');

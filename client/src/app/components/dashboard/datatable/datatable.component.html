@@ -11,12 +11,12 @@
           </span>
           <span *ngSwitchCase="'actions'" class="actions">
             <span *ngFor="let action of cel.actions">
-              <button class="view" *ngIf="action.action == 'view'" (click)="getView(action.id)">
+              <button class="view" *ngIf="action && action.action == 'view'" (click)="getView(action.id)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="11.038" height="11.038" viewBox="0 0 11.038 11.038">
                   <path id="Icon_open-magnifying-glass" data-name="Icon open-magnifying-glass" d="M4.786-.031a4.786,4.786,0,1,0,0,9.572,4.73,4.73,0,0,0,2.27-.561,1.367,1.367,0,0,0,.178.178L8.6,10.525A1.395,1.395,0,1,0,10.57,8.556L9.2,7.189a1.367,1.367,0,0,0-.219-.178,4.722,4.722,0,0,0,.6-2.27A4.791,4.791,0,0,0,4.8-.045Zm0,1.367A3.4,3.4,0,0,1,8.2,4.755a3.429,3.429,0,0,1-.9,2.352l-.041.041a1.367,1.367,0,0,0-.178.178,3.422,3.422,0,0,1-2.311.861,3.418,3.418,0,1,1,0-6.837Z" transform="translate(0 0.045)" fill="#FFF"/>
                 </svg>
               </button>
-              <button class="edit" *ngIf="action.action == 'edit'" (click)="getEdit(action.id)">
+              <button class="edit" *ngIf="action && action.action == 'edit'" (click)="getEdit(action.id)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="12.196" height="11.65" viewBox="0 0 12.196 11.65">
                   <g id="Icon_feather-edit-3" data-name="Icon feather-edit-3" transform="translate(-4 -3.818)">
                     <path id="Path_34341" data-name="Path 34341" d="M18,30h5.6" transform="translate(-7.902 -15.032)" fill="none" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
@@ -24,7 +24,7 @@
                   </g>
                 </svg>
               </button>
-              <button class="delete" *ngIf="action.action == 'delete'" (click)="getDelete(action.id)">
+              <button class="delete" *ngIf="action && action.action == 'delete'" (click)="getDelete(action.id)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="11.515" height="12.684" viewBox="0 0 11.515 12.684">
                   <g id="Icon_feather-trash-2" data-name="Icon feather-trash-2" transform="translate(-4 -2.5)">
                     <path id="Path_34341" data-name="Path 34341" d="M4.5,9H15.015" transform="translate(0 -3.663)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
@@ -53,8 +53,8 @@
             <a target="_blank" [href]="'https://maps.google.com/maps?ll='+cel.val[0]+','+cel.val[1]+'&z=16&t=m&hl=en-US&gl=US&mapclient=embed&q=31%C2%B038%2751.4%22N%207%C2%B059%2713.4%22W%20'+cel.val[0]+'%2C%20'+cel.val[1]+'@'+cel.val[0]+','+cel.val[1]" class="iframe-button">Full Map</a>
           </span>
           <span *ngSwitchCase="'boolean'" class="boolean">
-            <span *ngIf="cel.val" class="true">Solved</span>
-            <span *ngIf="!cel.val" class="false">Pending</span>
+            <span *ngIf="cel.val" class="true">{{ cel.labels[0] }}</span>
+            <span *ngIf="!cel.val" class="false">{{ cel.labels[0] }}</span>
           </span>
           <span *ngSwitchDefault>{{ cel.val }}</span>
         </td>

@@ -180,10 +180,18 @@
           }
           .boolean{
             .true{
-              color: $green;
+              color: $white;
+              background: $Green;
+              border-radius: 8px;
+              padding: 0.3rem 0.5rem;
+              cursor: context-menu;
             }
             .false{
-              color: $red;
+              color: $white;
+              background: $red;
+              border-radius: 8px;
+              padding: 0.3rem 0.5rem;
+              cursor: context-menu;
             }
           }
         }
