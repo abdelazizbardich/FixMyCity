@@ -44,5 +44,6 @@ pipeline{
                 echo '=====> Running docker compose for API & Client Containers...'
                 sh "cd . && docker-compose up -d"
             }
+        }
     }
 }
