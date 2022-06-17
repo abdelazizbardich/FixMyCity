@@ -16,9 +16,9 @@ pipeline{
         stage('Build Docker images'){
             steps {
                 echo '=====> building Docker image from api...'
-                sh "cd ./api && docker build -t ${APP_NAME}:${VERSION} ."
+                sh "cd ./api && docker build -t ${APP_NAME}_api:${VERSION} ."
                 echo '=====> building Docker image from client...'
-                sh "cd ./client && docker build -t ${APP_NAME}:${VERSION} ."
+                sh "cd ./client && docker build -t ${APP_NAME}_client:${VERSION} ."
             }
         }
         stage('Deploy'){
