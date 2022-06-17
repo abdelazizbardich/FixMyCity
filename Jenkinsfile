@@ -5,7 +5,7 @@ pipeline {
         stage('Building Api') {
             steps {
                 echo 'Building API..'
-                sh "cd ./api && mvn clean && mvn package"
+                sh "cd ./api && mvn clean && mvn install"
                 sh "cd ../"
             }
         }
