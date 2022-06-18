@@ -22,3 +22,8 @@ Tous ces faits amènent une question simple : que peut faire une administration 
   docker-compose up -d --build
   ```
  - Une fois le process terminé ouvrez votre navigateur et naviguez vers: http://localhost
+ - Pour accéder au tableau de bord, utilisez ces informations d'identification :
+    ```
+    admin
+    pass1234
+    ```
