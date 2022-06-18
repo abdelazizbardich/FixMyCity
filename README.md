@@ -1,4 +1,5 @@
 # FixMyCity
+`Ce projet a été créé pour accomplir le sujet du Filerouge de la formation Java/Angular à l'école Youcode.`
 
 FixMyCity est un Site Web et application mobile basés sur une carte qui aident la population Marocains à informer leurs autorités locales des problèmes nécessitant leur attention, tels que les nids de poule, les lampadaires cassés, etc. Il s'agit de l'instance marocaine de FixMyStreet. les rapports sont également publiés sur le site web
 ## Comment cela fonctionne :
